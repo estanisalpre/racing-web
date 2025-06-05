@@ -1,0 +1,31 @@
+@use '../../../utils/vars' as *;       
+@use '../../../utils/mixins' as *;
+@use '../../../utils/typography' as *;
+@use '../../../utils/animations' as *;
+@use '../../../utils/breakpoints' as *; 
+
+.dashboard-view{
+    z-index: 100;
+    @include sizes();
+    @include displayFlex();
+
+    .dashboard-content{
+        @include sizes(84%, 95%);
+        @include displayFlex();
+        position: absolute;
+        right: 25px;
+        top: 25px;
+        bottom: 25px;
+        backdrop-filter: blur(5px);
+        box-shadow: $shadow;
+        border-radius: 20px;
+        overflow: hidden;
+
+        img{
+            position: absolute;
+            bottom: 0px;
+            width: 100%;
+            z-index: 10;
+        }
+    }
+}

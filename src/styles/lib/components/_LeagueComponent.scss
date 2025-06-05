@@ -1,0 +1,74 @@
+@use '../../utils/vars' as *;       
+@use '../../utils/mixins' as *;
+@use '../../utils/typography' as *;
+@use '../../utils/animations' as *;
+@use '../../utils/breakpoints' as *;
+
+.league-card-container{
+    @include displayFlex();
+    @include sizes($height: 50%);
+    z-index: 100;
+    animation: r-slide-in 3s ease;
+    gap: 20px;
+
+    h2{
+        @include sizes(50%,$height: 40px);
+        @include displayFlex();
+        font-family: $calSansFont;
+        font-weight: 800;
+        border-bottom: 1px solid black;
+        font-size: $slg;
+    }
+
+    .league-card{
+        @include sizes();
+        @include displayFlex($flexDirection: row);
+        gap: 25px;
+
+        .league-card-content{
+            @include sizes(150px,300px);
+            @include displayFlex($justifyContent: space-between);
+            border-radius: 8px;
+            box-shadow: 0 10px 8px rgba(0, 0, 0, 0.101);
+            min-width: 200px;
+            text-align: center;
+            position: relative;
+            background-image: $dark-BackgroundImage;
+            transition: all 0.5s ease;
+
+            &:hover{
+                transform: scale(1.05);
+            }
+
+            h3{
+                @include sizes($height: 40px);
+                @include displayFlex();
+                background-image: $deg-v1-OrangeToOrange;
+                border-bottom-left-radius: 60px;
+                border-bottom-right-radius: 60px;
+                color: $lightFontColor;
+                z-index: 100;
+            }
+
+            .bg-card{
+                @include sizes();
+                position: absolute;
+                object-fit: cover;
+                top: 0;
+                left: 0;
+                z-index: 99;
+            }
+
+            button{
+                @include buttonDesign($width: 100%, $height: 50px, $bR: 0px);
+                border: none;
+                background-image: none;
+                background-image: $deg-v1-OrangeToOrange;
+                color: $darkFontColor;
+                gap: 10px;
+                font-size: $lg;
+                z-index: 101;
+            }
+        }
+    }
+}

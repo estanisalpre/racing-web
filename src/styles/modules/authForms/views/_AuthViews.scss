@@ -1,0 +1,71 @@
+@use '../../../utils/vars' as *;       
+@use '../../../utils/mixins' as *;
+@use '../../../utils/typography' as *;
+@use '../../../utils/animations' as *;
+@use '../../../utils/breakpoints' as *;
+
+.auth-full-container{
+    @include sizes();
+    @include displayFlex();
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    margin-top: 300px;
+    position: relative; 
+
+    @include breakpoint(large){
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 0px;
+    }
+
+    .auth-text-container{
+        @include sizes();
+        max-width: 650px;
+        max-height: 500px;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        @include displayFlex();
+        align-items: flex-start;
+        color: white;
+        z-index: 102;
+        padding: 25px;
+        gap: 25px;
+        background-image: url("../../../assets/images/backgrounds/blob-scene-bg.svg");
+        box-shadow: $shadow;
+
+        h2{
+            font-size: 2.5rem;
+            font-family: $calSansFont;
+            letter-spacing: 2px;
+        }
+
+        p{
+            font-size: $lg;
+        }
+
+        .link-auth{
+            @include buttonDesign($width: 100%, $height: 50px);
+            text-decoration: none;
+            max-width: 150px;
+            font-size: $md;
+            background-image: none;
+            border: 1px solid $lightFontColor;
+            border-radius: 10px;
+
+            &:hover{
+            background-image: $light-BackgroundImage;
+            color: $darkFontColor;
+            transform: translateX(5px);
+            }
+        }
+    }
+    .register-text-container{
+        border-top-right-radius: 20px;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 20px;
+        max-height: 600px;
+        justify-content: space-around;
+    }
+}

@@ -1,0 +1,84 @@
+// Imports
+@use './vars' as *;
+@use './typography' as *;
+
+//Mixins
+@mixin sizes($width: 100%, $height: 100%){
+    width: $width;
+    height: $height;
+}
+@mixin displayFlex($justifyContent: center, $flexDirection: column){
+    display: flex;
+    justify-content: $justifyContent;
+    flex-direction: $flexDirection;
+    align-items: center;
+}
+@mixin fontConfig($textAlign: center, $fontSize: $sm, $fontWeight: $noBold, $fontColor: $darkFontColor){
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+    color: $fontColor;
+    text-align: $textAlign;
+}
+@mixin buttonDesign($p: 5px, $width: 150px, $height: 40px, $bR: 5px){
+    padding: $p;
+    border-radius: $bR;
+    width: $width;
+    height: $height;
+    font-family: $manropeBoldFont;
+    color: $lightFontColor;
+    cursor: pointer;
+    @include displayFlex();
+    background-image: $dark-BackgroundImage;
+    transition: all 0.3s ease;
+}
+@mixin inputDesign($w: 100%, $h: 100%){
+  border: none;
+  width: $w;
+  height: $h;
+  border-radius: 5px;
+  font-size: $lg;
+  padding: 10px;
+  color: $darkFontColor;
+  outline: none;
+  font-family: $manropeLightFont;
+  font-weight: $noBold;
+}::placeholder{
+  color: $grayFontColor;
+}
+@mixin imgAsButtons($w: 30px, $h: 30px){
+    width: $w;
+    height: $h;
+    cursor: pointer;
+    background-color: transparent;
+    background-image: none;
+}
+@mixin inputCheckbox() {
+    input[type="checkbox"] {
+      @include sizes(15px, 15px);
+      border: none;
+      outline: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background-color: #fff;
+      cursor: pointer;
+      position: relative;
+      
+      border: 1px solid #ccc;
+      
+      &:checked {
+        background-color: rgb(157, 241, 124);
+        &::after {
+          content: '';
+          position: absolute;
+          top: 3px;
+          left: 7px;
+          width: 3px;
+          height: 8px;
+          border: solid $darkFontColor;
+          border-width: 0 2px 2px 0;
+          transform: rotate(45deg);
+        }
+      }
+    }
+}

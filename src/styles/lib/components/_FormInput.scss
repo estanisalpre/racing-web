@@ -1,0 +1,48 @@
+@use '../../utils/vars' as *;       
+@use '../../utils/mixins' as *;
+@use '../../utils/typography' as *;
+@use '../../utils/animations' as *;
+@use '../../utils/breakpoints' as *;
+
+.input-container-full{
+    @include sizes();
+    @include displayFlex();
+
+    .input-label{
+        color: $brandColor;
+        @include sizes();
+        @include displayFlex();
+        align-items: flex-start;
+        font-size: $sm;
+        font-weight: $bold;
+    }
+
+    .input-container{
+        @include sizes();
+        @include displayFlex($flexDirection: row, $justifyContent: flex-start);
+        gap: 10px;
+
+        .input-content{
+            @include sizes();
+            @include displayFlex(); 
+            align-items: flex-start;
+
+            .input-field{
+                @include inputDesign($w: 100%);
+                font-size: $sm;
+                border: 1px solid #cecece;
+            }
+
+            .error{
+                font-size: 11px;
+                @include sizes($height: 20px);
+                @include displayFlex();
+                align-items: flex-start;
+                color: red;
+                font-weight: $bold;
+                padding: 5px;
+                margin-bottom: 5px;
+            }
+        }
+    }
+}

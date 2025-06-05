@@ -1,0 +1,49 @@
+@use '../../utils/vars' as *;       
+@use '../../utils/mixins' as *;
+@use '../../utils/typography' as *;
+@use '../../utils/animations' as *;
+@use '../../utils/breakpoints' as *;
+
+.card-container{
+    @include sizes(250px,80px);
+    @include displayFlex($justifyContent: space-between);
+    box-shadow: $shadow;
+    border-radius: 20px;
+    background-image: $primary-Strong-BackgroundImage;
+    position: relative;
+
+    h3{
+        color: $lightFontColor;
+        font-family: $calSansFont;
+        font-size: $lg;
+        border-bottom: 1px solid $lightFontColor;
+        @include sizes($height: 40px);
+        @include displayFlex($flexDirection:row, $justifyContent: space-around);
+        padding: 5px;
+
+        .details-link{
+            text-decoration: none;
+            cursor: pointer;
+            z-index: 11;
+
+            button{
+                @include buttonDesign($width: 100px, $height: 80%);
+                border: none;
+                background-image: none;
+                background-color: transparent;
+                backdrop-filter: blur(5px);
+                color: $brandColor;
+
+                &:hover{
+                    transform: scale(1.05);
+                }
+            }
+        }
+    }
+    p{
+        @include sizes();
+        @include displayFlex();
+        padding: 5px;
+        font-size: $md;
+    }
+}

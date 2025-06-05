@@ -1,0 +1,56 @@
+@use '../../../utils/vars' as *;       
+@use '../../../utils/mixins' as *;
+@use '../../../utils/typography' as *;
+@use '../../../utils/animations' as *;
+@use '../../../utils/breakpoints' as *;
+
+// use
+@use '../../../lib/components/LeagueComponent';
+
+.hero-section{
+    @include sizes($height: 100vh);
+    @include displayFlex($flexDirection: row, $justifyContent: space-between);
+    position: relative;
+    gap: 25px;
+
+    .hero-bg-img{
+        @include sizes(50%,auto);
+        position: absolute;
+        object-fit: cover;
+        bottom: 0;
+        left: 0;
+        z-index: 10;
+        animation: r-slide-in 1.3s ease;
+    }
+    .esl-logo{
+        @include sizes(30%,auto);
+        margin-bottom: 250px;
+        margin-left: 150px;
+        animation: fade-in 5s ease;
+    }
+
+    .hero-content{
+        @include sizes(60%,$height: 90%);
+        @include displayFlex($justifyContent: space-between);
+
+        .title-hero-container{
+            @include sizes();
+            @include displayFlex();
+            
+             .hero-title{
+                @include sizes(80%,100px);
+                @include displayFlex();
+                align-items: flex-start;
+                font-size: 80px;
+                font-family: $calSansFont;
+                color: $brandColor;
+            }
+            .hero-subtitle{
+                @include sizes(80%,$height: 50px);
+                @include displayFlex();
+                align-items: flex-start;
+            }
+        }
+       
+    }
+}

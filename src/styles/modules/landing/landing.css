@@ -1,0 +1,260 @@
+.decorative-shape {
+  position: absolute;
+  z-index: -1;
+  opacity: 0.15;
+}
+.decorative-shape.top-left {
+  top: 0;
+  left: 0;
+  width: 300px;
+}
+
+@font-face {
+  font-family: "Cal Sans";
+  src: url("/assets/fonts/CalSans-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Nunito Light";
+  src: url("/assets/fonts/Nunito-Light.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Manrope Bold";
+  src: url("/assets/fonts/Manrope-Bold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Manrope Light";
+  src: url("/assets/fonts/Manrope-Light.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+::-moz-placeholder {
+  color: #818181;
+}
+::placeholder {
+  color: #818181;
+}
+
+@keyframes open-burguer-menu {
+  0% {
+    height: 0%;
+  }
+  100% {
+    height: 30%;
+  }
+}
+@keyframes open-order-modal {
+  0% {
+    height: 0%;
+  }
+  100% {
+    height: 50%;
+  }
+}
+@keyframes alert-slide-in {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+@keyframes r-slide-in {
+  0% {
+    transform: translateX(2500px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.league-card-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 50%;
+  z-index: 100;
+  animation: r-slide-in 3s ease;
+  gap: 20px;
+}
+.league-card-container h2 {
+  width: 50%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Cal Sans", sans-serif;
+  font-weight: 800;
+  border-bottom: 1px solid black;
+  font-size: 30px;
+}
+.league-card-container .league-card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  gap: 25px;
+}
+.league-card-container .league-card .league-card-content {
+  width: 150px;
+  height: 300px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: 0 10px 8px rgba(0, 0, 0, 0.101);
+  min-width: 200px;
+  text-align: center;
+  position: relative;
+  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+  transition: all 0.5s ease;
+}
+.league-card-container .league-card .league-card-content:hover {
+  transform: scale(1.05);
+}
+.league-card-container .league-card .league-card-content h3 {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-image: linear-gradient(135deg, #f77c00 0%, #dc7105 100%);
+  border-bottom-left-radius: 60px;
+  border-bottom-right-radius: 60px;
+  color: #f1f1f1;
+  z-index: 100;
+}
+.league-card-container .league-card .league-card-content .bg-card {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -o-object-fit: cover;
+     object-fit: cover;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+.league-card-container .league-card .league-card-content button {
+  padding: 5px;
+  border-radius: 0px;
+  width: 100%;
+  height: 50px;
+  font-family: "Manrope Bold", sans-serif;
+  color: #f1f1f1;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+  transition: all 0.3s ease;
+  border: none;
+  background-image: none;
+  background-image: linear-gradient(135deg, #f77c00 0%, #dc7105 100%);
+  color: #2c2c2c;
+  gap: 10px;
+  font-size: 22px;
+  z-index: 101;
+}
+
+.hero-section {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  gap: 25px;
+}
+.hero-section .hero-bg-img {
+  width: 50%;
+  height: auto;
+  position: absolute;
+  -o-object-fit: cover;
+     object-fit: cover;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  animation: r-slide-in 1.3s ease;
+}
+.hero-section .esl-logo {
+  width: 30%;
+  height: auto;
+  margin-bottom: 250px;
+  margin-left: 150px;
+  animation: fade-in 5s ease;
+}
+.hero-section .hero-content {
+  width: 60%;
+  height: 90%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+}
+.hero-section .hero-content .title-hero-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.hero-section .hero-content .title-hero-container .hero-title {
+  width: 80%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  align-items: flex-start;
+  font-size: 80px;
+  font-family: "Cal Sans", sans-serif;
+  color: #072130;
+}
+.hero-section .hero-content .title-hero-container .hero-subtitle {
+  width: 80%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  align-items: flex-start;
+}
+
+.landing-view-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}/*# sourceMappingURL=landing.css.map */

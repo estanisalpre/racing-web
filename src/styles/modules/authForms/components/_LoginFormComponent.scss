@@ -1,0 +1,88 @@
+@use '../../../utils/vars' as *;       
+@use '../../../utils/mixins' as *;
+@use '../../../utils/typography' as *;
+@use '../../../utils/animations' as *;
+@use '../../../utils/breakpoints' as *;
+
+.login-content{
+    @include sizes();
+    @include displayFlex();
+    max-width: 400px;
+    max-height: 500px;
+    align-items: flex-start;
+    gap: 10px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    z-index: 100;
+    background-image: $light-BackgroundImage;
+    padding: 25px;
+    box-shadow: $shadow;
+    
+    .auth-header{
+        @include sizes($height: 50px);
+        @include displayFlex($flexDirection:row, $justifyContent: flex-start);
+
+        h2{
+            @include sizes($height: 50px);
+            @include displayFlex();
+            align-items: flex-start;
+            font-size: $slg;
+            font-family: $calSansFont;
+            color: $brandColor;
+        }
+        img{
+            @include sizes(70px, auto);
+            @include displayFlex();
+        }
+    }
+
+    h3{
+        padding: 10px;
+        @include sizes($height: 40px);
+        @include displayFlex();
+        align-items: flex-start;
+        font-size: $md;
+        color: #818181;
+        font-weight: $noBold;
+    }
+
+    .login-auth-form{
+        @include sizes($height: 40%);
+        @include displayFlex();
+        border-radius: 20px;
+        padding: 10px;
+        
+        .submit-btn-container{
+            @include sizes($height: 60px);
+            @include displayFlex();
+            align-items: flex-start;
+            
+            button{
+                @include buttonDesign($width: 50%, $height: 70%, $bR: 5px);
+                border: 1px solid $lightFontColor;
+                flex-direction: row; 
+                background-image: none;
+                background-color: $darkBlue;
+                color: $lightFontColor;
+                gap: 10px;
+                &:hover{
+                    transform: translateX(5px);
+                }
+            }
+            
+            .login-icon{
+                transition: all 0.3s ease;
+                color: white;
+            } 
+        }
+    }
+    .recovery-link{
+        @include sizes($width: 60%, $height: 40px); 
+        @include displayFlex($flexDirection: row, $justifyContent: flex-start);
+        gap: 10px;
+        text-decoration: none;
+        color: $darkFontColor; 
+        font-weight: $bold; 
+        font-size: $sm; 
+    }
+}

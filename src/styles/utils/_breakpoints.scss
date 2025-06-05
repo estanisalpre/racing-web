@@ -1,0 +1,17 @@
+@mixin breakpoint($size) {
+    @if $size == xsmall {
+        @media (min-width: 400px) { @content; }
+    }
+    @if $size == small {
+        @media (min-width: 768px) { @content; }
+    }
+    @if $size == medium {
+        @media (min-width: 1024px) { @content; }
+    }
+    @if $size == large {
+        @media (min-width: 1280px) { @content; }
+    }
+    @if $size == extraLarge {
+        @media (min-width: 1600px) { @content; }
+    }
+}

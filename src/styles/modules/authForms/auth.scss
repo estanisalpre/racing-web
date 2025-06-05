@@ -1,0 +1,9 @@
+// All module style file ends here
+@use './views/AuthViews';
+@use './components/LoginFormComponent';
+@use './components/RegisterFormComponent';
+@use './components/PasswordRecoveryComponent';
+@use './layouts/AuthLayout'; 
+
+// Shared
+@use '../../shared/components/FormStyles';

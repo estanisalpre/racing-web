@@ -1,0 +1,20 @@
+@use '../../../utils/vars' as *;       
+@use '../../../utils/mixins' as *;
+@use '../../../utils/typography' as *;
+@use '../../../utils/animations' as *;
+@use '../../../utils/breakpoints' as *;
+
+.auth-layout{
+    @include sizes();
+    @include displayFlex();
+    position: relative;
+    
+    .bg-blob-shape{
+        @include sizes();
+        position: absolute;
+        object-fit: cover;
+        top: 0;
+        left: 0;
+        z-index: 1; 
+    }
+}

@@ -1,0 +1,61 @@
+@use '@styles/utils/vars' as *;       
+@use '@styles/utils/mixins' as *;
+@use '@styles/utils/typography' as *;
+@use '@styles/utils/animations' as *;
+@use '@styles/utils/breakpoints' as *;
+
+.not-found-container{
+    @include sizes();
+    @include displayFlex();
+    gap: 10px;
+    background-image: url('../../../assets/images/backgrounds/stacked-404.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .not-found-content{
+        @include sizes();
+        @include displayFlex();
+        max-height: 400px;
+        max-width: 700px;
+        padding: 25px;
+        position: relative;
+        border-radius: 20px;
+        box-shadow: $shadow;
+        gap: 25px;
+        background-image: url('../../../assets/images/backgrounds/blob-scene-bg.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: $light-BackgroundImage;
+
+        .not-found-title{
+            @include sizes();
+            @include displayFlex($flexDirection:row);
+
+            img{
+                @include sizes(400px,auto);
+                position: absolute;
+                left: -150px;
+                bottom: 0px;
+                filter: drop-shadow(0px 20px 20px rgba(0, 0, 0, 0.644));
+            }
+            h2{
+                font-size: 200px;
+                font-family: $calSansFont;
+                color: #0f413c;
+            }
+        }
+        p{
+            font-size: $lg;
+            color: $darkFontColor;
+            font-weight: 600;
+        }
+        .link-404{
+            @include buttonDesign($bR: 20px, $width: 200px, $height: 50px);
+            text-decoration: none;
+            font-size: $md;
+            border: none;
+        }
+    }
+}

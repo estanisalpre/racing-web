@@ -1,0 +1,46 @@
+@use '../../../utils/vars' as *;       
+@use '../../../utils/mixins' as *;
+@use '../../../utils/typography' as *;
+@use '../../../utils/animations' as *;
+
+.reg-auth-father-container{
+    @include sizes();
+    @include displayFlex();
+    max-width: 600px;
+    max-height: 600px;
+    align-items: flex-start;
+    gap: 10px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    z-index: 100;
+    background-image: $light-BackgroundImage;
+    padding: 50px;
+    box-shadow: $shadow;
+
+    .auth-header{
+        @include sizes($height: 50px);
+        @include displayFlex($flexDirection:row, $justifyContent: flex-start);
+
+        h2{
+            @include sizes($height: 50px);
+            @include displayFlex();
+            align-items: flex-start;
+            font-size: $lg;
+            font-family: $calSansFont;
+            color: $brandColor;
+            letter-spacing: 1px;
+        }
+        img{
+            @include sizes(50px, auto);
+            @include displayFlex();
+        }
+    }
+
+    .reg-auth-form{
+        @include sizes();
+        @include displayFlex();
+        border-radius: 20px;
+        padding: 10px;
+        gap: 10px;
+    }
+}

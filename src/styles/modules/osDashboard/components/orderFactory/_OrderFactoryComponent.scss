@@ -1,0 +1,120 @@
+@use '../../../../utils/vars' as *;       
+@use '../../../../utils/mixins' as *;
+@use '../../../../utils/typography' as *;
+@use '../../../../utils/animations' as *;
+@use '../../../../utils/breakpoints' as *; 
+
+.form-register-order{
+    @include sizes();
+    @include displayFlex($flexDirection:row);
+    gap: 25px;
+    padding: 10px;
+    z-index: 999;
+    overflow: hidden;
+    max-height: 100vh;
+
+    textarea {
+        min-height: 40px;
+        height: 40px;
+        resize: vertical;
+        max-height: 200px;
+    }
+
+    .form-inputs-container{
+        @include sizes(33%);
+        @include displayFlex($flexDirection: column);
+        gap: 10px;
+        align-items: flex-start;
+        justify-content: flex-start;
+        overflow-y: auto;
+        overflow-x: hidden;
+        background-image: $light-BackgroundImage;
+        padding: 10px;
+        border-radius: 5px;
+        max-height: 100%;
+        scrollbar-width: thin;
+        scrollbar-color: $brandColor transparent;
+    }
+    
+    .visual-form-container{
+        @include sizes(33%);
+        @include displayFlex();
+        background-image: $light-BackgroundImage;
+        border-radius: 20px;
+        box-shadow: $shadow;
+        padding: 5px;
+        overflow: hidden;
+
+        .previsualize-order{
+            @include sizes();
+            @include displayFlex($justifyContent: flex-start);
+            align-items: flex-start;
+            color: $darkFontColor;
+
+            h3{
+                @include sizes($height: 30px);
+                @include displayFlex();
+                align-items: flex-start;
+                border-bottom: 1px solid $darkFontColor;
+                font-family: $calSansFont;
+                font-size: $lg;
+                color: $brandColor;
+                padding: 5px;
+            }
+
+           .summary-table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 1rem;
+                @include displayFlex();
+                gap: 10px;
+
+                tbody{
+                    @include sizes();
+                    @include displayFlex($justifyContent:flex-start);
+                    align-items: flex-start;
+                    gap: 10px;
+                }
+            }
+            .summary-table th,
+            .summary-table td {
+                padding: 8px;
+                text-align: left;
+                font-size: $sm;
+                width: 250px;
+                border-radius: 5px;
+            }
+
+            .summary-table th {
+                background-color: $bg-light;
+                font-weight: bold;
+            }
+            .summary-table td{
+                border: 1px solid #ddd;
+            }
+        }
+
+        .submit-btn-container{
+            @include sizes($height: 50px);
+            flex-direction: row;
+            gap: 25px;
+
+            button{
+                background-color: #3f8f43;
+                border-radius: 10px;
+
+                &:hover{
+                    transform: none;
+                }
+            }
+            .print-btn{
+                background-color: $brandColor;
+            }
+        }
+    }
+
+    .odontogram-container{
+        @include sizes(33%);
+        @include displayFlex();
+    }
+}

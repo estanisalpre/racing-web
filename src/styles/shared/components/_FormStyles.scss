@@ -1,0 +1,56 @@
+@use '../../utils/vars' as *;       
+@use '../../utils/mixins' as *;
+@use '../../utils/typography' as *;
+@use '../../utils/animations' as *;
+@use '../../utils/breakpoints' as *;
+
+.input-container{
+    .submit-btn-container{
+            @include sizes($height: 60px);
+            @include displayFlex();
+            align-items: flex-start;
+            
+            button{
+                @include buttonDesign($width: 40%, $height: 50px, $bR: 5px);
+                border: 1px solid $lightFontColor;
+                flex-direction: row; 
+                background-image: none;
+                background-color: $darkBlue;
+                color: $lightFontColor;
+                gap: 10px;
+                &:hover{
+                    transform: translateX(5px);
+                }
+            }
+            
+            .login-icon{
+                transition: all 0.3s ease;
+                color: white;
+            } 
+        }
+}
+
+// Reg button
+.submit-btn-container{
+    @include sizes($height: 60px);
+    @include displayFlex();
+    align-items: flex-start;
+    
+    button{
+        @include buttonDesign($width: 40%, $height: 50px, $bR: 5px);
+        border: 1px solid $lightFontColor;
+        flex-direction: row; 
+        background-image: none;
+        background-color: $darkBlue;
+        color: $lightFontColor;
+        gap: 10px;
+        &:hover{
+            transform: translateX(5px);
+        }
+    }
+    
+    .login-icon{
+        transition: all 0.3s ease;
+        color: white;
+    } 
+}

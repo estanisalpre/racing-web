@@ -1,0 +1,53 @@
+// Variables: variables de colores, sombras, degrades, para utilizarlos en cada archivo de estilos
+// Página donde saco los colores en degrade: https://webgradients.com
+// Background Gradiant Colors
+$primary-Normal-BackgroundImage:linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+$primary-Strong-BackgroundImage: linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%);
+$light-BackgroundImage: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+$dark-BackgroundImage: linear-gradient(60deg, #29323c 0%, #485563 100%);
+
+// Container Gradiant Colors
+// From blue to blue (Dark to Light & viceverse)
+$deg-v1-OrangeToOrange: linear-gradient(135deg, #f77c00 0%, #dc7105 100%); 
+$deg-v2-BlueToBlue: linear-gradient(135deg, #0785D9 0%, #0E07D9 100%); 
+// From purple to purple (Dark to Light & viceverse)
+$deg-v1-PurpleToPurple: linear-gradient(135deg, #5207D9 0%, #9707D9 100%); 
+$deg-v2-PurpleToPurple: linear-gradient(135deg, #9707D9 0%, #5207D9 100%); 
+// From blue to purple (Dark - Medium - Light)
+$deg-Dark-BlueToPurple: linear-gradient(135deg, #0E07D9 0%, #5207D9 100%); 
+$deg-Medium-BlueToPurple: linear-gradient(135deg, #0742D9 0%, #5A56DB 100%); 
+$deg-Light-BlueToPurple: linear-gradient(135deg, #0785D9 0%, #9707D9 100%); 
+// From purple to blue (Dark - Medium - Light)
+$deg-Dark-PurpleToBlue: linear-gradient(135deg, #0E07D9 0%, #5207D9 100%); 
+$deg-Medium-PurpleToBlue: linear-gradient(135deg, #605bff 0%, #5207D9 100%); 
+$deg-Light-PurpleToBlue: linear-gradient(135deg, #0E07D9 0%, #5207D9 100%); 
+
+// Primary Colors
+// Orange
+$darkBlue: #9d4b08;
+$mediumBlue: #ca600a;
+$lightBlue: #f77c00;
+$bg-light: #dc7105;
+// Purple
+$darkPurple: #5207D9;
+$mediumPurple: #5A56DB;
+$lightPurple: #9707D9;
+
+// Buttons & Inputs
+$secondary-Normal-BackgroundImage: linear-gradient(45deg, #13547a 0%, #1c77ac 99%, #2c76a0 100%);
+
+// Shadow
+$shadow: 0px 0px 20px 1px rgba(58, 58, 58, 0.205);
+
+// CODE FOR SVGS
+// Decorative Shape at Login and Register Views
+.decorative-shape {
+  position: absolute;
+  z-index: -1;
+  opacity: 0.15;
+  &.top-left {
+    top: 0;
+    left: 0;
+    width: 300px;
+  }
+}

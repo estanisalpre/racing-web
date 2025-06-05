@@ -1,0 +1,8 @@
+// All style file ends here
+// Import
+// Base & Main
+@use './base/base'; // *, html & body
+@use './base/main'; // Main
+
+// Header & Footer
+@use './components/HeaderComponent';  

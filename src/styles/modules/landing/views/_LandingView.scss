@@ -1,0 +1,10 @@
+@use '../../../utils/vars' as *;       
+@use '../../../utils/mixins' as *;
+@use '../../../utils/typography' as *;
+@use '../../../utils/animations' as *;
+@use '../../../utils/breakpoints' as *;
+
+.landing-view-container{
+    @include sizes();
+    @include displayFlex();
+}

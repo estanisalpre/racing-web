@@ -1,0 +1,32 @@
+@use './../utils/vars' as *;       
+@use './../utils/mixins' as *;
+@use './../utils/typography' as *;
+@use './../utils/animations' as *;
+@use './../utils/breakpoints' as *;
+
+nav{
+    @include sizes(60%, 50px);
+    @include displayFlex($flexDirection:row, $justifyContent: space-between);
+    position: fixed;
+    top: 25px;
+    z-index: 1000;
+    gap: 25px;
+    padding: 10px;
+    
+    .header-link{
+        text-decoration: none;
+        @include displayFlex();
+        color: $darkFontColor;
+        font-weight: $bold;
+        transition: all 0.3s ease;
+        font-size: $md;
+
+        &:hover{
+            transform: translateY(5px);
+            border-bottom: 1px solid $darkFontColor;
+        }
+    }
+    .start-link{
+        @include buttonDesign();
+    }
+}
