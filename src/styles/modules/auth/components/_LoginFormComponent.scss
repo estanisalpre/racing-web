@@ -4,7 +4,3 @@
 @use '../../../utils/animations' as *;
 @use '../../../utils/breakpoints' as *;
 
-.landing-view-container{
-    @include sizes();
-    @include displayFlex($justifyContent: flex-start);
-}

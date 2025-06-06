@@ -5,44 +5,43 @@
 @use '../../utils/breakpoints' as *;
 
 .input-container-full{
-    @include sizes();
     @include displayFlex();
+    gap: 20px;
 
     .input-label{
-        color: $brandColor;
-        @include sizes();
+        color: $darkFontColor;
+        @include sizes($height: 25px);
         @include displayFlex();
         align-items: flex-start;
         font-size: $sm;
         font-weight: $bold;
+        border-bottom: 1px solid #cccc;
+        padding: 3px;
     }
 
     .input-container{
         @include sizes();
-        @include displayFlex($flexDirection: row, $justifyContent: flex-start);
+        @include displayFlex($flexDirection: row);
         gap: 10px;
 
-        .input-content{
-            @include sizes();
-            @include displayFlex(); 
-            align-items: flex-start;
-
-            .input-field{
-                @include inputDesign($w: 100%);
-                font-size: $sm;
-                border: 1px solid #cecece;
-            }
-
-            .error{
-                font-size: 11px;
-                @include sizes($height: 20px);
-                @include displayFlex();
-                align-items: flex-start;
-                color: red;
-                font-weight: $bold;
-                padding: 5px;
-                margin-bottom: 5px;
-            }
+        .input-icon{
+            @include sizes(40px,auto);
+            color: #ccc;
         }
+        .input-field{
+            @include inputDesign($w: 100%);
+            font-size: $sm;
+            border: 1px solid #cecece;
+        }
+    }
+
+     .error{
+        font-size: 11px;
+        @include sizes($height: 20px);
+        @include displayFlex();
+        align-items: flex-start;
+        color: red;
+        font-weight: $bold;
+        padding: 3px;
     }
 }

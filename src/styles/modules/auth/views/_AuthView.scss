@@ -4,25 +4,20 @@
 @use '../../../utils/animations' as *;
 @use '../../../utils/breakpoints' as *;
 
-.auth-full-container{
-    @include sizes();
-    @include displayFlex();
-    max-width: 1000px;
+@use '../components/LoginFormComponent';
+@use '../../../lib/components/FormInput';
+
+.auth-view-container{
+    @include sizes(95%,$height: 70vh);
+    @include displayFlex($flexDirection:row);
     margin: 0 auto;
-    padding: 0 1rem;
-    margin-top: 300px;
     position: relative; 
+    border-radius: 20px;
+    box-shadow: $shadow;
+    background-image: $darkBlack-BackgroundImage;
 
-    @include breakpoint(large){
-        flex-direction: row;
-        justify-content: space-between;
-        margin-top: 0px;
-    }
-
-    .auth-text-container{
-        @include sizes();
-        max-width: 650px;
-        max-height: 500px;
+    .auth-view-content{
+        @include sizes(50%);
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
         @include displayFlex();
@@ -31,17 +26,11 @@
         z-index: 102;
         padding: 25px;
         gap: 25px;
-        background-image: url("../../../assets/images/backgrounds/blob-scene-bg.svg");
-        box-shadow: $shadow;
 
         h2{
             font-size: 2.5rem;
             font-family: $calSansFont;
             letter-spacing: 2px;
-        }
-
-        p{
-            font-size: $lg;
         }
 
         .link-auth{
@@ -50,22 +39,22 @@
             max-width: 150px;
             font-size: $md;
             background-image: none;
-            border: 1px solid $lightFontColor;
             border-radius: 10px;
+            color: $darkFontColor;
+            border: none;
+            background-image: $light-BackgroundImage;
 
             &:hover{
-            background-image: $light-BackgroundImage;
-            color: $darkFontColor;
             transform: translateX(5px);
             }
         }
     }
-    .register-text-container{
-        border-top-right-radius: 20px;
-        border-top-left-radius: 0px;
-        border-bottom-left-radius: 0px;
-        border-bottom-right-radius: 20px;
-        max-height: 600px;
-        justify-content: space-around;
+    .form-auth-container{
+        @include sizes(30%,80%); 
+        @include displayFlex();
+        gap: 20px;
+        background-image: $light-BackgroundImage;
+        border-radius: 20px;
+        overflow: hidden;
     }
 }

@@ -9,7 +9,7 @@ export default function HeaderComponent() {
         <Link className="header-link" to={"/"}>Reglamento</Link>
         <Link className="header-link" to={"/"}>Clasificación</Link>
         <Link className="header-link" to={"/"}>Contacto</Link>
-        <Link className="header-link start-link" to={"/"}>COMENZAR</Link>
+        <Link className="header-link start-link" to={"/auth"}>COMENZAR</Link>
     </nav>
   )
 }

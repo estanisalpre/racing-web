@@ -1,0 +1,37 @@
+@use '../../utils/vars' as *;       
+@use '../../utils/mixins' as *;
+@use '../../utils/typography' as *;
+@use '../../utils/animations' as *;
+@use '../../utils/breakpoints' as *;
+
+.schedule-card-container{
+    @include sizes($height: 150px);
+    @include displayFlex();
+    padding: 10px;
+    box-shadow: $shadow;
+    border-radius: 20px;
+    background-image: $darkBlack-BackgroundImage;
+
+    .schedule-card-content{
+        @include displayFlex($flexDirection: row, $justifyContent: space-between);
+        @include sizes();
+
+        .schedule-card-date{
+            @include sizes(130px,90%);
+            @include displayFlex();
+            background-image: $light-orange-BackgroundImage;
+            border-radius: 20px;
+
+            .calendar-icon{
+                @include sizes(60%,auto);
+                @include displayFlex();
+                color: $bg-light;
+            }
+            span{
+                color: $darkFontColor;
+                font-size: 20px;
+                font-weight: 800;
+            }
+        }
+    }
+}
