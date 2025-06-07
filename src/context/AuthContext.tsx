@@ -60,6 +60,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(authReducer, initialState);
 
   useEffect(() => {
+    dispatch({ type: 'SET_LOADING', payload: true });
+
+    const token = authService.getAccessToken();
+    const user  = authService.getCurrentUser();
+
+    if (token && user) {
+      dispatch({ type: 'SET_USER', payload: user });
+    } else {
+      dispatch({ type: 'SET_USER', payload: null });
+    }
+
     dispatch({ type: 'SET_LOADING', payload: false });
   }, []);
 

@@ -8,7 +8,7 @@
     position: absolute;
     top: 10px;
     right: 10px;
-    @include sizes(250px,100px);
+    @include sizes(350px,100px);
     @include displayFlex();
     z-index: 999999;
 

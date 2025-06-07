@@ -26,7 +26,7 @@ export const LoginFormComponent: React.FC = () => {
       showSuccess('¡Login exitoso!', 'Has iniciado sesión correctamente');
 
       setTimeout(() => {
-        window.location.href = '/';
+        window.location.href = '/home';
       }, 2000);
     } catch (error) {
       showError('Error de login', error instanceof Error ? error.message : 'Credenciales incorrectas');
