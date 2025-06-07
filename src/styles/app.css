@@ -167,4 +167,102 @@ nav .start-link {
   align-items: center;
   background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
   transition: all 0.3s ease;
+}
+
+.alert-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 250px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  z-index: 999999;
+}
+.alert-container .alert-content {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  padding: 15px;
+}
+.alert-container .alert-content .alert-title {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+}
+.alert-container .alert-content .alert-title .alert-icon-text {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+.alert-container .alert-content .alert-title .alert-icon-text span {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.alert-container .alert-content .alert-title .alert-icon-text .alert-text {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.alert-container .alert-content .alert-title .alert-icon-text .alert-text h3 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 600;
+}
+.alert-container .alert-content .alert-title .alert-icon-text .alert-text p {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 400;
+}
+.alert-container .alert-content .alert-title .alert-close-btn {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+  width: 25px;
+  height: 25px;
+  font-family: "Manrope Bold", sans-serif;
+  color: #f1f1f1;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+  transition: all 0.3s ease;
+  border: none;
 }/*# sourceMappingURL=app.css.map */

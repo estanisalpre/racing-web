@@ -615,31 +615,6 @@
   padding: 3px;
 }
 
-.odontogram-svg {
-  width: 100%;
-  height: 100%;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
-}
-
-.tooth-shape {
-  fill: #f9f9f9;
-  stroke: #666;
-  stroke-width: 1;
-  cursor: pointer;
-  transition: fill 0.2s;
-}
-
-.tooth-shape.selected {
-  fill: #dc7105;
-  stroke: #000;
-}
-
-.tooth-shape:hover {
-  fill: #ddd;
-}
-
 .input-container .submit-btn-container {
   width: 100%;
   height: 60px;

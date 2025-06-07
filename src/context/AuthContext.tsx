@@ -1,4 +1,11 @@
-import React, { createContext, useContext, useReducer, useEffect, ReactNode } from 'react';
+// src/context/AuthContext.tsx
+import {
+  createContext,
+  useContext,
+  useReducer,
+  useEffect,
+  type ReactNode
+} from 'react';
 import { authService } from '@/services/authService';
 import { ApiError } from '@/services/api';
 import type { AuthContextType, User, LoginData, RegisterData } from '@/types/auth';
@@ -28,7 +35,6 @@ function authReducer(state: AuthState, action: AuthAction): AuthState {
   switch (action.type) {
     case 'SET_LOADING':
       return { ...state, isLoading: action.payload };
-    
     case 'SET_USER':
       return {
         ...state,
@@ -37,26 +43,12 @@ function authReducer(state: AuthState, action: AuthAction): AuthState {
         isLoading: false,
         error: null,
       };
-    
     case 'SET_ERROR':
-      return {
-        ...state,
-        error: action.payload,
-        isLoading: false,
-      };
-    
+      return { ...state, error: action.payload, isLoading: false };
     case 'LOGOUT':
-      return {
-        ...state,
-        user: null,
-        isAuthenticated: false,
-        isLoading: false,
-        error: null,
-      };
-    
+      return { user: null, isAuthenticated: false, isLoading: false, error: null };
     case 'CLEAR_ERROR':
       return { ...state, error: null };
-    
     default:
       return state;
   }
@@ -64,32 +56,12 @@ function authReducer(state: AuthState, action: AuthAction): AuthState {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-interface AuthProviderProps {
-  children: ReactNode;
-}
-
-export function AuthProvider({ children }: AuthProviderProps) {
+export function AuthProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(authReducer, initialState);
 
-  // Verificar autenticación al cargar la app
+  // Inicializar: asumimos no autenticado
   useEffect(() => {
-    const initializeAuth = () => {
-      try {
-        if (authService.isAuthenticated() && !authService.isTokenExpired()) {
-          const user = authService.getCurrentUser();
-          dispatch({ type: 'SET_USER', payload: user });
-        } else {
-          authService.logout();
-          dispatch({ type: 'SET_LOADING', payload: false });
-        }
-      } catch (error) {
-        console.error('Error initializing auth:', error);
-        authService.logout();
-        dispatch({ type: 'SET_LOADING', payload: false });
-      }
-    };
-
-    initializeAuth();
+    dispatch({ type: 'SET_LOADING', payload: false });
   }, []);
 
   const login = async (data: LoginData): Promise<void> => {
@@ -97,30 +69,12 @@ export function AuthProvider({ children }: AuthProviderProps) {
       dispatch({ type: 'SET_LOADING', payload: true });
       dispatch({ type: 'CLEAR_ERROR' });
 
-      const response = await authService.login(data);
-      
-      if (response.success && response.data) {
-        dispatch({ type: 'SET_USER', payload: response.data.user });
-      } else {
-        throw new Error(response.message || 'Error al iniciar sesión');
-      }
-    } catch (error) {
-      let errorMessage = 'Error al iniciar sesión';
-      
-      if (error instanceof ApiError) {
-        errorMessage = error.message;
-        
-        // Manejar errores de validación
-        if (error.data?.errors) {
-          const validationErrors = Object.values(error.data.errors).flat();
-          errorMessage = validationErrors.join(', ');
-        }
-      } else if (error instanceof Error) {
-        errorMessage = error.message;
-      }
-      
-      dispatch({ type: 'SET_ERROR', payload: errorMessage });
-      throw error;
+      const authData = await authService.login(data);
+      dispatch({ type: 'SET_USER', payload: authData.user });
+    } catch (err: any) {
+      const msg = err instanceof Error ? err.message : 'Error al iniciar sesión';
+      dispatch({ type: 'SET_ERROR', payload: msg });
+      throw err;
     }
   };
 
@@ -129,30 +83,14 @@ export function AuthProvider({ children }: AuthProviderProps) {
       dispatch({ type: 'SET_LOADING', payload: true });
       dispatch({ type: 'CLEAR_ERROR' });
 
-      const response = await authService.register(data);
-      
-      if (response.success && response.data) {
-        dispatch({ type: 'SET_USER', payload: response.data.user });
-      } else {
-        throw new Error(response.message || 'Error al registrar usuario');
-      }
-    } catch (error) {
-      let errorMessage = 'Error al registrar usuario';
-      
-      if (error instanceof ApiError) {
-        errorMessage = error.message;
-        
-        // Manejar errores de validación
-        if (error.data?.errors) {
-          const validationErrors = Object.values(error.data.errors).flat();
-          errorMessage = validationErrors.join(', ');
-        }
-      } else if (error instanceof Error) {
-        errorMessage = error.message;
-      }
-      
-      dispatch({ type: 'SET_ERROR', payload: errorMessage });
-      throw error;
+      await authService.register(data);
+
+      // No seteamos user ni tokens aquí
+      dispatch({ type: 'SET_LOADING', payload: false });
+    } catch (err: any) {
+      const msg = err instanceof Error ? err.message : 'Error al registrar usuario';
+      dispatch({ type: 'SET_ERROR', payload: msg });
+      throw err;
     }
   };
 
@@ -165,28 +103,26 @@ export function AuthProvider({ children }: AuthProviderProps) {
     dispatch({ type: 'CLEAR_ERROR' });
   };
 
-  const contextValue: AuthContextType = {
-    user: state.user,
-    isAuthenticated: state.isAuthenticated,
-    isLoading: state.isLoading,
-    error: state.error,
-    login,
-    register,
-    logout,
-    clearError,
-  };
-
   return (
-    <AuthContext.Provider value={contextValue}>
+    <AuthContext.Provider
+      value={{
+        user: state.user,
+        isAuthenticated: state.isAuthenticated,
+        isLoading: state.isLoading,
+        error: state.error,
+        login,
+        register,
+        logout,
+        clearError,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
 }
 
 export function useAuth(): AuthContextType {
-  const context = useContext(AuthContext);
-  if (context === undefined) {
-    throw new Error('useAuth must be used within an AuthProvider');
-  }
-  return context;
+  const ctx = useContext(AuthContext);
+  if (!ctx) throw new Error('useAuth debe usarse dentro de AuthProvider');
+  return ctx;
 }

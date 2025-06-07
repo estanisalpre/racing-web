@@ -88,6 +88,17 @@
     opacity: 0;
   }
 }
+.form-auth {
+  border: 1px solid red;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
 .input-container-full {
   display: flex;
   justify-content: center;

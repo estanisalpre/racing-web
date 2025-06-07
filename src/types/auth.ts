@@ -18,14 +18,41 @@ export interface User {
   updatedAt: string;
 }
 
+export interface AuthUserData extends User {
+  access_token: string;
+  refresh_token?: string;
+}
+
 export interface AuthResponse {
   success: boolean;
   message: string;
   data: {
-    user: User;
+    data: User;
     access_token: string;
-    refresh_token?: string;
+    refresh_token?: string | undefined;
   };
+  access_token: string; 
+  refresh_token?: string | undefined; 
+}
+
+export class ApiError extends Error {
+  public status: number;
+  public data: unknown;
+
+  constructor(message: string, status: number, data?: unknown) {
+    super(message);
+    this.name = 'ApiError';
+    this.status = status;
+    this.data = data;
+  }
+}
+
+export interface ErrorAuthResponse {
+  success: false;
+  message: string;
+  data: null;
+  access_token: null;
+  refresh_token: null;
 }
 
 export interface AuthError {
@@ -39,7 +66,7 @@ export interface AuthContextType {
   isAuthenticated: boolean;
   isLoading: boolean;
   login: (data: LoginData) => Promise<void>;
-  register: (data: RegisterData) => Promise<void>;
+  register: (data: RegisterData) => Promise<AuthResponse>;
   logout: () => void;
   error: string | null;
   clearError: () => void;

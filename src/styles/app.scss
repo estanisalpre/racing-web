@@ -6,3 +6,6 @@
 
 // Header & Footer
 @use './components/HeaderComponent';  
+
+// components & utils shared
+@use './lib/components/NotificationModal';

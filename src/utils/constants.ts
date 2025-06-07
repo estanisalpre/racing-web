@@ -4,6 +4,7 @@ export const API_CONFIG = {
     AUTH: {
       REGISTER: '/auth/register',
       LOGIN: '/auth/login',
+      REFRESH: '/auth/refresh',
     }
   },
   TIMEOUT: 10000, 
@@ -14,3 +15,4 @@ export const STORAGE_KEYS = {
   REFRESH_TOKEN: 'refresh_token',
   USER_DATA: 'user_data',
 } as const;
+
