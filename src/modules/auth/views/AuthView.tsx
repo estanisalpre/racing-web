@@ -18,9 +18,9 @@ export default function AuthView() {
           {isLogin ? "Crear cuenta" : "Ingresar"}
         </button>
       </article>
-      <form className="form-auth-container">
+      <div className="form-auth-container">
         {isLogin ? <LoginFormComponent /> : <RegisterFormComponent />}
-      </form>
+      </div>
     </section>
   );
 }
