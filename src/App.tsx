@@ -19,8 +19,7 @@ function App() {
   return (
     <AuthProvider>
       <HeaderComponent/>
-      <UserAsideComponent />
-
+      
       <Routes>
         {/* Públicas */}
         <Route path="/" element={<LandingView />} />

@@ -5,4 +5,5 @@
 main{
     @include sizes();
     @include displayFlex();
+    position: relative;
 }

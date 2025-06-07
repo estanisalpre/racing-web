@@ -4,6 +4,9 @@
 @use '../../../utils/animations' as *;
 @use '../../../utils/breakpoints' as *; 
 
+// imports
+@use '../../../components/UserAsideComponent';
+
 .dashboard-view{
     z-index: 100;
     @include sizes();
