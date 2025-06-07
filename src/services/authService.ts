@@ -1,10 +1,8 @@
-// src/services/AuthService.ts
 import { apiClient, ApiError } from './api';
 import { API_CONFIG } from '@/utils/constants';
-import type { RegisterData, LoginData, AuthResponse, User } from '@/types/auth';
+import type { RegisterData, LoginData, User } from '@/types/auth';
 
 export class AuthService {
-  // Verifica expiración de JWT (si lo usas para login)
   isTokenExpired(): boolean {
     const token = this.getAccessToken();
     if (!token) return true;
@@ -16,31 +14,24 @@ export class AuthService {
     }
   }
 
-  // Login: devuelve data con user y tokens
-  async login(data: LoginData): Promise<{ user: User; access_token: string; refresh_token?: string }> {
-    try {
-      const response = await apiClient.post<AuthResponse>(
-        API_CONFIG.ENDPOINTS.AUTH.LOGIN,
-        {
-          email: data.email.trim().toLowerCase(),
-          password: data.password,
-        }
-      );
+  // Login: return data and tokens
+  async login(data: LoginData) {
+    const response = await apiClient.post<{ success: boolean; data: {
+      access_token: string;
+      refresh_token?: string;
+      user: User;
+    }}>(API_CONFIG.ENDPOINTS.AUTH.LOGIN, {
+      email: data.email.trim().toLowerCase(),
+      password: data.password,
+    });
 
-      const authData = response.data.data;
-      if (authData.access_token) {
-        this.saveAuthData(authData);
-      }
-      return authData;
-    } catch (err: any) {
-      if (err instanceof ApiError && err.status === 401) {
-        throw new Error('Credenciales incorrectas');
-      }
-      throw new Error('Error al iniciar sesión');
-    }
+    const { access_token, refresh_token, user } = response.data;
+
+    this.saveAuthData({ user, access_token, refresh_token });
+
+    return { user, access_token, refresh_token };
   }
 
-  // Register: sólo devuelve el mensaje de éxito
   async register(data: RegisterData): Promise<{ message: string }> {
     try {
       const response = await apiClient.post<{ message: string }>(
@@ -79,7 +70,11 @@ export class AuthService {
     return localStorage.getItem('access_token');
   }
 
-  private saveAuthData(data: { user: User; access_token: string; refresh_token?: string }): void {
+  private saveAuthData(data: {
+    user: User;
+    access_token: string;
+    refresh_token?: string;
+  }) {
     localStorage.setItem('access_token', data.access_token);
     if (data.refresh_token) {
       localStorage.setItem('refresh_token', data.refresh_token);

@@ -7,7 +7,7 @@ import {
   type ReactNode
 } from 'react';
 import { authService } from '@/services/authService';
-import { ApiError } from '@/services/api';
+//import { ApiError } from '@/services/api';
 import type { AuthContextType, User, LoginData, RegisterData } from '@/types/auth';
 
 interface AuthState {
@@ -59,7 +59,6 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(authReducer, initialState);
 
-  // Inicializar: asumimos no autenticado
   useEffect(() => {
     dispatch({ type: 'SET_LOADING', payload: false });
   }, []);
@@ -85,7 +84,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
       await authService.register(data);
 
-      // No seteamos user ni tokens aquí
       dispatch({ type: 'SET_LOADING', payload: false });
     } catch (err: any) {
       const msg = err instanceof Error ? err.message : 'Error al registrar usuario';
