@@ -13,7 +13,6 @@ export default function AvatarComponent() {
     const file = e.target.files[0];
     if (!file) return;
 
-    // Validar tamaño < 2MB (opcional)
     if (file.size > 5 * 1024 * 1024) {
       alert('La imagen debe pesar menos de 5MB');
       return;

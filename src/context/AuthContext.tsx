@@ -8,18 +8,20 @@ import {
 } from 'react';
 import { authService } from '@/services/authService';
 //import { ApiError } from '@/services/api';
-import type { AuthContextType, User, LoginData, RegisterData } from '@/types/auth';
+import type { AuthContextType, User, LoginData, RegisterData, Roles } from '@/types/auth';
 
 interface AuthState {
   user: User | null;
   isAuthenticated: boolean;
   isLoading: boolean;
   error: string | null;
+  role: Roles | number | null;
 }
 
 type AuthAction =
   | { type: 'SET_LOADING'; payload: boolean }
   | { type: 'SET_USER'; payload: User | null }
+  | { type: 'SET_ROLE'; payload: Roles | number | null}
   | { type: 'SET_ERROR'; payload: string | null }
   | { type: 'LOGOUT' }
   | { type: 'CLEAR_ERROR' };
@@ -29,6 +31,7 @@ const initialState: AuthState = {
   isAuthenticated: false,
   isLoading: true,
   error: null,
+  role: null,
 };
 
 function authReducer(state: AuthState, action: AuthAction): AuthState {
@@ -42,11 +45,14 @@ function authReducer(state: AuthState, action: AuthAction): AuthState {
         isAuthenticated: !!action.payload,
         isLoading: false,
         error: null,
+        role: action.payload?.role ?? 'racer',
       };
+    case 'SET_ROLE':
+      return { ...state, role: action.payload};
     case 'SET_ERROR':
       return { ...state, error: action.payload, isLoading: false };
     case 'LOGOUT':
-      return { user: null, isAuthenticated: false, isLoading: false, error: null };
+      return { user: null, isAuthenticated: false, isLoading: false, error: null, role: null };
     case 'CLEAR_ERROR':
       return { ...state, error: null };
     default:
@@ -65,10 +71,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const token = authService.getAccessToken();
     const user  = authService.getCurrentUser();
 
+    console.log("User recuperado:", user);
+    console.log("Token:", token);
+
     if (token && user) {
       dispatch({ type: 'SET_USER', payload: user });
-    } else {
-      dispatch({ type: 'SET_USER', payload: null });
+
+      if (user.role) {
+        dispatch({ type: 'SET_ROLE', payload: user.role });
+      } else {
+        console.warn('⚠️ Usuario cargado sin rol, usando "racer" como fallback');
+        dispatch({ type: 'SET_ROLE', payload: 'racer' });
+      }
     }
 
     dispatch({ type: 'SET_LOADING', payload: false });
@@ -123,6 +137,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         isAuthenticated: state.isAuthenticated,
         isLoading: state.isLoading,
         error: state.error,
+        role: state.role,
         login,
         register,
         logout,

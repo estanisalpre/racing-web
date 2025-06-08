@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import { loginSchema } from '@/schemas/authSchema';
 import FormInput from '@/lib/components/FormInput';
@@ -9,6 +10,7 @@ import { useNotification } from '@/hooks/useNotification';
 
 export const LoginFormComponent: React.FC = () => {
   const authContext = useAuth();
+  const navigate = useNavigate();
   const { notification, showSuccess, showError, hideNotification } = useNotification();
   
   if (!authContext) {
@@ -26,7 +28,7 @@ export const LoginFormComponent: React.FC = () => {
       showSuccess('¡Login exitoso!', 'Has iniciado sesión correctamente');
 
       setTimeout(() => {
-        window.location.href = '/home';
+          navigate('/home');
       }, 2000);
     } catch (error) {
       showError('Error de login', error instanceof Error ? error.message : 'Credenciales incorrectas');

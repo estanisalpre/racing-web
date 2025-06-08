@@ -1,4 +1,6 @@
 export const API_ROUTES = {  
+    // GET
+    
     // POST
     LOGIN: '/auth/login',
     REGISTER: '/auth/register',
