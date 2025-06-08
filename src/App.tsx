@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom"
 import { AuthProvider } from "./context/AuthContext"
 
 // aside
-import UserAsideComponent from "./components/UserAsideComponent"
+import UserAsideComponent from "./modules/dashboard/components/UserAsideComponent"
 
 // components - header & footer
 import HeaderComponent from "./components/HeaderComponent"

@@ -1,5 +1,5 @@
 import '@/styles/modules/eslDashboard/eslDashboard.css'
-import UserAsideComponent from '@/components/UserAsideComponent'
+import UserAsideComponent from '@/modules/dashboard/components/UserAsideComponent'
 
 export default function DashboardView() {
   return (

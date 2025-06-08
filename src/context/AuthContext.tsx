@@ -112,6 +112,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     dispatch({ type: 'CLEAR_ERROR' });
   };
 
+  const updateUser = async (user: User) => {
+    dispatch({ type: 'SET_USER', payload: user });
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -123,6 +127,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         register,
         logout,
         clearError,
+        updateUser,
       }}
     >
       {children}

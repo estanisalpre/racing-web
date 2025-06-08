@@ -4,6 +4,9 @@
 @use './../utils/animations' as *;
 @use './../utils/breakpoints' as *;
 
+// components
+@use '../lib/components/IracingInput';
+
 .user-aside-container{
     position: fixed;
     @include sizes(300px,80%);

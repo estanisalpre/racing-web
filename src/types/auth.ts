@@ -17,6 +17,7 @@ export interface User {
   createdAt: string;
   updatedAt: string;
   avatar: string;
+  iracing_id: number | null;
 }
 
 export interface AuthUserData extends User {
@@ -71,4 +72,5 @@ export interface AuthContextType {
   logout: () => void;
   error: string | null;
   clearError: () => void;
+  updateUser: (user: User) => void;
 }

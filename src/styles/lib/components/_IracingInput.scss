@@ -1,0 +1,19 @@
+@use '../../utils/vars' as *;       
+@use '../../utils/mixins' as *;
+@use '../../utils/typography' as *;
+@use '../../utils/animations' as *;
+@use '../../utils/breakpoints' as *;
+
+.iracing-id-container{
+    border-bottom: 1px solid white;
+    @include sizes($height: 40px);
+    @include displayFlex($flexDirection:row);
+    gap: 5px;
+    color: $lightFontColor;
+    padding: 5px;
+
+    input{
+        @include inputDesign($w: 70%);
+        font-size: $sm;
+    }
+}
