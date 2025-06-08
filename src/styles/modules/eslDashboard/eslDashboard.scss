@@ -12,8 +12,7 @@
 @use './components/home/HomeComponent';
 @use './components/orderFactory/OrderFactoryComponent';
 @use '../../lib/components/FormInput';
-@use '../../lib/components/Odontogram';
 
 // Shared
 @use '../../shared/components/FormStyles';
-@use '../../shared/components/CardComponent';
+@use '../../shared/components/CardComponent'; 

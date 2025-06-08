@@ -4,7 +4,7 @@
 @use './../utils/animations' as *;
 @use './../utils/breakpoints' as *;
 
-nav{
+.nav{
     @include sizes(60%, 50px);
     @include displayFlex($flexDirection:row, $justifyContent: space-between);
     position: fixed;
@@ -12,6 +12,7 @@ nav{
     z-index: 1000;
     gap: 25px;
     padding: 10px;
+    transition: all 0.3s ease;
     
     .header-link{
         text-decoration: none;
@@ -29,4 +30,12 @@ nav{
     .start-link{
         @include buttonDesign();
     }
+}
+.scrolled{
+    background-image: $light-BackgroundImage;
+    top: 0px;
+    @include sizes($height: 70px);
+    padding: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
 }

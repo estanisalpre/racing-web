@@ -1,0 +1,69 @@
+@use '../../utils/vars' as *;       
+@use '../../utils/mixins' as *;
+@use '../../utils/typography' as *;
+@use '../../utils/animations' as *;
+@use '../../utils/breakpoints' as *;
+
+.alert-container{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    @include sizes(350px,100px);
+    @include displayFlex();
+    z-index: 999999;
+
+    .alert-content{
+        @include sizes();
+        border-radius: 10px;
+        @include displayFlex();
+        overflow: hidden;
+        position: relative;
+        padding: 15px;
+
+        .alert-title{
+            @include sizes();
+            @include displayFlex();
+            font-size: $sm;
+
+            .alert-icon-text{
+                @include sizes();
+                @include displayFlex($flexDirection:row);
+
+                span{
+                    @include displayFlex();
+                }
+
+                .alert-text{
+                    @include sizes();
+                    @include displayFlex();
+
+                    h3{
+                        @include sizes();
+                        @include displayFlex();
+                        font-weight: $bold;
+                    }
+                    p{
+                        @include sizes();
+                        @include displayFlex();
+                        font-weight: $noBold;
+                    }
+                }
+            }
+            .alert-close-btn{
+                @include displayFlex();
+                position: absolute;
+                right: 5px;
+                top: 5px;
+                cursor: pointer;
+                @include buttonDesign($width: 25px, $height: 25px);
+                border: none;
+            }
+        }
+        
+    }
+}
+
+
+
+
+

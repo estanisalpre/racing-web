@@ -4,6 +4,9 @@
 // cars
 import FF1600 from '../assets/cars/ff1600-orange.png'
 
+// icons
+import RaceFlag from '../assets/icons/race-flag.png'
+
 // utils
 import TwoCars from '../assets/utils/two-cars.png'
 
@@ -15,6 +18,11 @@ import Logo1 from '../assets/logos/esl-logo.png'
 // cars
 export const cars = {
     ff1600_1: FF1600,
+}
+
+// icons
+export const icons = {
+    raceFlag: RaceFlag,
 }
 
 // utils
