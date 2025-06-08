@@ -72,7 +72,7 @@ export default function UploadRacingSummary() {
 
       <button onClick={handleUpload}>Subir</button>
 
-      {status && <p>{status}</p>}
+      {status && <p className='status'>{status}</p>}
     </article>
   );
 }

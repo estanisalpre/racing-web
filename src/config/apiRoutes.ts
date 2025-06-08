@@ -1,6 +1,7 @@
 export const API_ROUTES = {  
     // GET
     ALL_EVENTS: '/event/all',
+    RACER_STATS: (id: number) => `/user/${id}/stats`,
 
     // POST
     LOGIN: '/auth/login',

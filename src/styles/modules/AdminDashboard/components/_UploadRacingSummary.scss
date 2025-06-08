@@ -65,4 +65,12 @@
         color: $darkFontColor;
         border: none;
     }
+
+    .status{
+        @include sizes();
+        @include displayFlex();
+        text-align: left;
+        font-size: $sm;
+        color: #b7ff75;
+    }
 }
