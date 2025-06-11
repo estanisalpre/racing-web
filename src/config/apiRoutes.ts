@@ -1,12 +1,14 @@
 export const API_ROUTES = {  
     // GET
     ALL_EVENTS: '/event/all',
+    ALL_LEAGUES: '/league/all',
     RACER_STATS: (id: number) => `/user/${id}/stats`,
 
     // POST
     LOGIN: '/auth/login',
     REGISTER: '/auth/register',
     UPLOAD_RESULTS: '/result/upload',
+    CREATE_EVENT: '/event/create',
 
     // PUT
     IRACING_ID: '/user/iracing-id',

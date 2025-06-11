@@ -5,7 +5,7 @@
 @use '../../../utils/breakpoints' as *;
 
 .upload-racing-container{
-    @include sizes(250px,400px);
+    @include sizes(80%);
     @include displayFlex($justifyContent: flex-start);
     border-radius: 20px;
     box-shadow: $shadow;
@@ -17,7 +17,7 @@
         @include sizes($height: 80px);
         @include displayFlex();
         text-align: center;
-        color: $bg-light;
+        color: $darkFontColor;
         background-image: $light-BackgroundImage;
         border-radius: 20px;
         font-family: $calSansFont;

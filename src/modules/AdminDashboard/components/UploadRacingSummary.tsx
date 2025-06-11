@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import { API_ROUTES } from '@/config/apiRoutes';
 import { Upload } from 'lucide-react';
+import type { Event } from '@/types/events';
 
 export default function UploadRacingSummary() {
   const [file, setFile] = useState<File | null>(null);
   const [sessionType, setSessionType] = useState('practice'); 
   const [eventId, setEventId] = useState('');
-  const [events, setEvents] = useState([]);
+  const [events, setEvents] = useState<Event[]>([]);  
   const [status, setStatus] = useState<string | null>(null);
 
   useEffect(() => {
