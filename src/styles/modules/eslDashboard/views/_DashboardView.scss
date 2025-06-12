@@ -9,8 +9,12 @@
 
 .dashboard-view{
     z-index: 100;
-    @include sizes();
-    @include displayFlex();
+    @include sizes(90%,80%);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
 
     .dashboard-content{
         @include sizes(84%, 95%);

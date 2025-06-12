@@ -1,8 +1,14 @@
 export const API_ROUTES = {  
     // GET
-    ALL_EVENTS: '/event/all',
-    ALL_LEAGUES: '/league/all',
-    RACER_STATS: (id: number) => `/user/${id}/stats`,
+        // EVENTS
+        ALL_EVENTS: '/event/all',
+        USER_EVENTS: '/event/user-events',
+
+        // USER
+        RACER_STATS: (id: number) => `/user/${id}/stats`,
+
+        // LEAGUES
+        ALL_LEAGUES: '/league/all',
 
     // POST
     LOGIN: '/auth/login',
@@ -11,6 +17,7 @@ export const API_ROUTES = {
     CREATE_EVENT: '/event/create',
 
     // PUT
-    IRACING_ID: '/user/iracing-id',
-    AVATAR_URL: '/user/avatar-url',
+        // USER
+        IRACING_ID: '/user/iracing-id',
+        AVATAR_URL: '/user/avatar-url',
 }

@@ -1,0 +1,16 @@
+@use '../../../utils/vars' as *;       
+@use '../../../utils/mixins' as *;
+@use '../../../utils/typography' as *;
+@use '../../../utils/animations' as *;
+@use '../../../utils/breakpoints' as *;
+
+.next-event-countdown{
+    @include sizes(70%,$height: 100px);
+    @include displayFlex($flexDirection: row);
+    background-image: $deg-v1-OrangeToOrange;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    border-radius: 20px;
+    box-shadow: $shadow;
+    gap: 20px;
+}
