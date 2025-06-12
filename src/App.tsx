@@ -3,6 +3,7 @@ import { AuthProvider } from "./context/AuthContext"
 
 // components - header & footer
 import HeaderComponent from "./components/HeaderComponent"
+import InscriptionComponent from "./modules/landing/components/InscriptionComponent"
 
 // private routes
 import PrivateRoute from "./routes/components/PrivateRoutes"
@@ -25,6 +26,7 @@ function App() {
         {/* Públicas */}
         <Route path="/" element={<LandingView />} />
         <Route path="/auth" element={<AuthView />} />
+        <Route path="/inscription" element={<InscriptionComponent />} />
 
         {/* Privadas */}
         <Route element={<PrivateRoute />}>

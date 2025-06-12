@@ -9,7 +9,5 @@ export default function DashboardView() {
       <NextEventCountdown/>
       <UserAsideComponent/>
     </section>
-
-    
   )
 }

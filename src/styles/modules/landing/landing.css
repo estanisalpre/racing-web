@@ -96,7 +96,6 @@
   width: 100%;
   height: 50%;
   z-index: 100;
-  animation: r-slide-in 3s ease;
   gap: 20px;
 }
 .league-card-container h2 {
@@ -307,7 +306,50 @@
   min-height: 100vh;
   padding: 50px;
   background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
-  border: 1px solid red;
+}
+
+.inscription-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.inscription-container .inscription-content {
+  box-shadow: 0px 0px 20px 1px rgba(58, 58, 58, 0.205);
+  width: 50%;
+  height: 90%;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.inscription-container .inscription-content h2 {
+  width: 100%;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-size: 70px;
+  font-family: "Cal Sans", sans-serif;
+  color: #f1f1f1;
+}
+.inscription-container .inscription-content p {
+  width: 100%;
+  height: 40px;
+  font-size: 22px;
+  color: #f1f1f1;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .landing-view-container {

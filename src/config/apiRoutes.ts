@@ -10,11 +10,23 @@ export const API_ROUTES = {
         // LEAGUES
         ALL_LEAGUES: '/league/all',
 
+        // INSCRIPTIONS
+        // CHEK AN INSCRIPTION
+        CHECK_INSCRIPTION: '/inscription/check',
+
     // POST
-    LOGIN: '/auth/login',
-    REGISTER: '/auth/register',
-    UPLOAD_RESULTS: '/result/upload',
-    CREATE_EVENT: '/event/create',
+        // USER AUTH
+        LOGIN: '/auth/login',
+        REGISTER: '/auth/register',
+
+        // RESULTS
+        UPLOAD_RESULTS: '/result/upload',
+
+        // EVENTS
+        CREATE_EVENT: '/event/create',
+
+        // INSCRIPTIONS
+        JOIN_LEAGUE: '/inscription/join',
 
     // PUT
         // USER

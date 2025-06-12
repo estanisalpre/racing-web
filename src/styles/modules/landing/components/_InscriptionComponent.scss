@@ -1,0 +1,35 @@
+@use '../../../utils/vars' as *;       
+@use '../../../utils/mixins' as *;
+@use '../../../utils/typography' as *;
+@use '../../../utils/animations' as *;
+@use '../../../utils/breakpoints' as *;
+
+.inscription-container{
+    @include sizes();
+    @include displayFlex($justifyContent: flex-end);
+    position: relative;
+    
+    .inscription-content{
+        box-shadow: $shadow;
+        @include sizes(50%,90%);
+        border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
+        background-image: $dark-BackgroundImage;
+        @include displayFlex($justifyContent: flex-start);
+        gap: 20px;
+
+        h2{
+            @include sizes($height: 120px);
+            @include displayFlex();
+            font-size: 70px;
+            font-family: $calSansFont;
+            color: $lightFontColor;
+        }
+        p{
+            @include sizes($height: 40px);
+            font-size: $lg;
+            color: $lightFontColor;
+            @include displayFlex();
+        }
+    }
+}

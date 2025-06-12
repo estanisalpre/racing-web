@@ -21,7 +21,7 @@ export default function HeaderComponent() {
           {/* NAV PUBLICO */}
           <Link className="header-link" to={"/"}>Inicio</Link>
           <Link className="header-link" to={"/"}>Calendario</Link>
-          <Link className="header-link" to={"/"}>Inscripción</Link>
+          <Link className="header-link" to={"/inscription"}>Inscripción</Link>
           <Link className="header-link" to={"/"}>Reglamento</Link>
           <Link className="header-link" to={"/"}>Ranking</Link>
           <Link className="header-link" to={"/"}>Contacto</Link>

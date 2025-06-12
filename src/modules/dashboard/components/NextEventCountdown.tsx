@@ -76,7 +76,7 @@ export default function NextEventCountdown() {
       ) : (
         <div>
           <p>Aún no estás inscripto a ningún evento.</p>
-          <button onClick={() => navigate("/inscripciones")}>Ver eventos</button>
+          <button onClick={() => navigate("/inscription")}>Inscribirme</button>
         </div>
       )}
     </header>
