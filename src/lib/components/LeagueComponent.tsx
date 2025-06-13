@@ -20,7 +20,7 @@ export default function LeagueComponent() {
           <div key={league.id} className="league-card">
             <img src={league.background_image} className="bg-card" alt={`Fondo de ${league.name}`} />
             <h3>{league.name}</h3>
-            <p>{league.description}</p>
+            <span>{league.description}</span>
 
             {league.current_participants >= 10 && (
               <p>

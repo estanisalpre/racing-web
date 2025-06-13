@@ -63,6 +63,7 @@ export default function NextEventCountdown() {
       {nextEvent ? (
         <>
           <h2>Próximo evento:</h2>
+          <p>{nextEvent.name}</p>
           <p>{new Date(nextEvent.start_date).toLocaleString()}</p>
           {timeLeft && (
             <div className="countdown">
@@ -74,7 +75,7 @@ export default function NextEventCountdown() {
           )}
         </>
       ) : (
-        <div>
+        <div className="no-events">
           <p>Aún no estás inscripto a ningún evento.</p>
           <button onClick={() => navigate("/inscription")}>Inscribirme</button>
         </div>

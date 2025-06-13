@@ -1,4 +1,5 @@
 import LeagueComponent from "@/lib/components/LeagueComponent"
+import { Link } from "react-router-dom";
 
 export default function InscriptionComponent() {
   return (
@@ -11,6 +12,10 @@ export default function InscriptionComponent() {
 
         <LeagueComponent/>
 
+        <span className="support-span">
+          ¿No encuentras lo que buscas?
+          <Link to="/contact" className="support-link"> Contáctanos</Link>
+        </span>
       </article>
     </section>
   )

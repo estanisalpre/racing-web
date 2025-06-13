@@ -37,17 +37,21 @@ export default function RacerStatsComponent() {
   if (loading) return <p>Cargando estadísticas...</p>;
   if (!stats) return <p>No se encontraron estadísticas.</p>;
 
-  const { general, ranking, ligas } = stats;
+  const { general, ranking } = stats;
 
   return (
-    <div className="racer-stats p-4 bg-white rounded-lg shadow-md">
+    <div className="racer-stats-container">
       <h2 className="text-2xl font-bold mb-4">
-        Estadísticas de {user.username}
+        MIS ESTADÍSTICAS
       </h2>
 
-      <section className="mb-6">
-        <h3 className="text-xl font-semibold mb-2">Resumen General</h3>
-        <ul className="list-disc list-inside">
+      <div className='racer-points'>
+        <span>{general.total_puntos}</span>
+        pts.
+      </div>
+
+      <section className='racer-information'>
+        <ul>
           <li>
             <strong>Temporadas participadas:</strong>{' '}
             {general.seasons_participated}
@@ -67,23 +71,20 @@ export default function RacerStatsComponent() {
             {general.total_participaciones}
           </li>
           <li>
-            <strong>Total de puntos:</strong> {general.total_puntos}
+            <strong>Victorias:</strong> {general.victorias}
           </li>
           <li>
-            <strong>Victorias en carreras:</strong> {general.victorias}
+            <strong>Podios:</strong> {general.podiums}
           </li>
           <li>
-            <strong>Podios (1°–3°):</strong> {general.podiums}
-          </li>
-          <li>
-            <strong>Poles en clasificación:</strong> {general.poles}
+            <strong>Poles:</strong> {general.poles}
           </li>
         </ul>
       </section>
 
-      <section className="mb-6">
-        <h3 className="text-xl font-semibold mb-2">Ranking de Campeonato</h3>
-        <ul className="list-disc list-inside">
+      <section className='championship-information'>
+        <h3>Campeonato</h3>
+        <ul>
           <li>
             <strong>Mejor posición alcanzada:</strong>{' '}
             {ranking.best_championship_rank || 'N/A'}
@@ -91,21 +92,6 @@ export default function RacerStatsComponent() {
           <li>
             <strong>Ligas ganadas:</strong> {ranking.leagues_won || 'Ninguna'}
           </li>
-        </ul>
-      </section>
-
-      <section>
-        <h3 className="text-xl font-semibold mb-2">Participaciones por Liga</h3>
-        <ul className="list-disc list-inside">
-          {ligas.length ? (
-            ligas.map((liga: any) => (
-              <li key={liga.id}>
-                <strong>{liga.name}</strong>: {liga.participaciones} participaciones
-              </li>
-            ))
-          ) : (
-            <li>No ha participado en ninguna liga aún.</li>
-          )}
         </ul>
       </section>
     </div>

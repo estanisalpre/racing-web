@@ -5,12 +5,69 @@
 @use '../../../utils/breakpoints' as *;
 
 .next-event-countdown{
-    @include sizes(70%,$height: 100px);
+    @include sizes(100%,$height: 100px);
     @include displayFlex($flexDirection: row);
-    background-image: $deg-v1-OrangeToOrange;
+    background-image: $dark-BackgroundImage;
     grid-column-start: 1;
-    grid-column-end: 4;
+    grid-column: span 4;
+    grid-row: 1/2;
     border-radius: 20px;
     box-shadow: $shadow;
     gap: 20px;
+    color: $lightFontColor;
+    padding: 20px;
+
+    h2{
+        @include sizes();
+        @include displayFlex();
+        font-size: $slg;
+        font-family: $calSansFont;
+        color: $lightFontColor;
+    }
+    p{
+        @include sizes();
+        @include displayFlex();
+        color: $lightFontColor;
+        font-size: 30px;
+    }
+    .countdown{
+        @include sizes();
+        @include displayFlex($flexDirection:row);
+        gap: 20px;
+        font-size: 30px;
+        background-image: $center-gradient-BackgroundImage;
+        padding: 10px;
+        border-radius: 10px;
+        font-family: $calSansFont;
+        color: $darkFontColor;
+
+        span{
+            @include sizes();
+            @include displayFlex();
+            font-size: 50px;
+            font-family: $calSansFont;
+            color: $darkFontColor;
+        }
+    }
+
+    // if racer is not in any event
+    .no-events{
+        @include displayFlex($flexDirection:row);
+        gap: 25px;
+        
+        p{
+            font-size: $lg;
+        }
+
+        button{
+            @include buttonDesign();
+            background-image: none;
+            background-color: $bg-light;
+            border: none;
+
+            &:hover{
+                transform: translateX(5px);
+            }
+        }
+    }
 }

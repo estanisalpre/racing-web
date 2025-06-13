@@ -2,8 +2,10 @@
 // Página donde saco los colores en degrade: https://webgradients.com
 // Background Gradiant Colors
 $primary-Normal-BackgroundImage:linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
-$primary-Strong-BackgroundImage: linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%);
+$primary-Strong-BackgroundImage: linear-gradient(to right, #e4afcb 0%, #b8cbb8 0%, #b8cbb8 0%, #e2c58b 30%, #c2ce9c 64%, #7edbdc 100%);
+$center-gradient-BackgroundImage: linear-gradient(to right, #e4dfaf 0%, #f3f399 0%, #fce72f 0%, #f3ab11 30%, #ffbb00 64%, #f5eb61 100%);
 $light-BackgroundImage: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+$light-2-BackgroundImage: linear-gradient(to bottom, #cfd9df 0%, #e2ebf0 100%);
 $dark-BackgroundImage: linear-gradient(60deg, #29323c 0%, #485563 100%);
 $darkBlack-BackgroundImage: linear-gradient(to right, #434343 0%, black 100%);
 $light-orange-BackgroundImage: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
