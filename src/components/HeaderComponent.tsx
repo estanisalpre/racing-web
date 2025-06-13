@@ -23,7 +23,7 @@ export default function HeaderComponent() {
           <Link className="header-link" to={"/"}>Calendario</Link>
           <Link className="header-link" to={"/inscription"}>Inscripción</Link>
           <Link className="header-link" to={"/"}>Reglamento</Link>
-          <Link className="header-link" to={"/"}>Ranking</Link>
+          <Link className="header-link" to={"/"}>Clasificación</Link>
           <Link className="header-link" to={"/"}>Contacto</Link>
 
           {/* NAV PRIVADO */}
