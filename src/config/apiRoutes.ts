@@ -25,6 +25,9 @@ export const API_ROUTES = {
         // EVENTS
         CREATE_EVENT: '/event/create',
 
+        // TRACKS
+        CREATE_TRACK: '/track/create',
+        
         // INSCRIPTIONS
         JOIN_LEAGUE: '/inscription/join',
 
