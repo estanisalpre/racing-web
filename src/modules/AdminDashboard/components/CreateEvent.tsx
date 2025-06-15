@@ -5,6 +5,7 @@ import { API_ROUTES } from '@/config/apiRoutes';
 
 export default function CreateEvent() {
   const [leagues, setLeagues] = useState<{ id: string; name: string }[]>([]);
+  const [tracks, setTracks] = useState<{ id: string; name: string, corners: number, length_meters: number, image_base64: string }[]>([]);
   const [status, setStatus] = useState<string | null>(null);
 
   useEffect(() => {
@@ -15,18 +16,26 @@ export default function CreateEvent() {
       .then(data => setLeagues(data.leagues || []));
   }, []);
 
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_API_URL}${API_ROUTES.ALL_TRACKS}`, {
+      headers: { Authorization: `Bearer ${localStorage.getItem('access_token')}` }
+    })
+      .then(res => res.json())
+      .then(data => setTracks(data.tracks || []));
+  }, []);
+
   const formik = useFormik({
     initialValues: {
       league_id: '',
       name: '',
-      track_name: '',
+      track_id: '',
       week_number: '',
       start_date: '',
     },
     validationSchema: Yup.object({
       league_id: Yup.string().required('Liga obligatoria'),
       name: Yup.string().required('Nombre del evento'),
-      track_name: Yup.string(),
+      track_id: Yup.string().required('Pista obligatoria'),
       week_number: Yup.number().required('Número de semana'),
       start_date: Yup.date().required('Fecha de inicio'),
     }),
@@ -87,13 +96,21 @@ export default function CreateEvent() {
           <p className="error">{formik.errors.name}</p>
         )}
 
-        <label>Nombre del circuito:</label>
-        <input
-          name="track_name"
-          type="text"
+        <select
+          name="track_id"
           onChange={formik.handleChange}
-          value={formik.values.track_name}
-        />
+          value={formik.values.track_id}
+        >
+          <option value="">Seleccionar pista</option>
+          {tracks.map((track) => (
+            <option key={track.id} value={track.id}>
+              {track.name}
+            </option>
+          ))}
+        </select>
+        {formik.touched.track_id && formik.errors.track_id && (
+          <p className="error">{formik.errors.track_id}</p>
+        )}
 
         <label>Semana del campeonato:</label>
         <input

@@ -10,6 +10,9 @@ export const API_ROUTES = {
         // LEAGUES
         ALL_LEAGUES: '/league/all',
 
+        // TRACKS
+        ALL_TRACKS: '/track/all',
+        
         // INSCRIPTIONS
         // CHEK AN INSCRIPTION
         CHECK_INSCRIPTION: '/inscription/check',

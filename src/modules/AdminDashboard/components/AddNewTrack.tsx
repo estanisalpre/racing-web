@@ -2,9 +2,11 @@ import { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { API_ROUTES } from '@/config/apiRoutes';
+import { Upload } from 'lucide-react';
 
 export default function AddNewTrack() {
   const [status, setStatus] = useState<string | null>(null);
+  const [file, setFile] = useState<File | null>(null);
 
   const formik = useFormik({
     initialValues: {
@@ -19,19 +21,28 @@ export default function AddNewTrack() {
     }),
     onSubmit: async (values, { resetForm }) => {
       try {
+        const formData = new FormData();
+        formData.append('name', values.name);
+        formData.append('corners', values.corners.toString());
+        formData.append('length_meters', values.length_meters.toString());
+        
+        if (file) {
+          formData.append('image', file);
+        }
+
         const res = await fetch(`${import.meta.env.VITE_API_URL}${API_ROUTES.CREATE_TRACK}`, {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${localStorage.getItem('access_token')}`
+            Authorization: `Bearer ${localStorage.getItem('access_token')}`,
           },
-          body: JSON.stringify(values)
+          body: formData
         });
 
         const data = await res.json();
         if (res.ok) {
           setStatus('✅ Pista creada correctamente');
           resetForm();
+          setFile(null); 
         } else {
           setStatus(`❌ ${data.message}`);
         }
@@ -79,6 +90,12 @@ export default function AddNewTrack() {
         {formik.touched.length_meters && formik.errors.length_meters && (
           <p className="error">{formik.errors.length_meters}</p>
         )}
+
+        <label htmlFor="file-upload" className="custom-file-upload">
+            <Upload size={20} /> 
+            Seleccionar archivo
+        </label>
+        <input type="file" id='file-upload' accept=".webp" onChange={(e) => setFile(e.target.files?.[0] || null)} className="hidden" />
 
         <button type="submit">Cargar pista</button>
       </form>
