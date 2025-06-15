@@ -1,0 +1,18 @@
+@use '../../utils/vars' as *;       
+@use '../../utils/mixins' as *;
+@use '../../utils/typography' as *;
+@use '../../utils/animations' as *;
+@use '../../utils/breakpoints' as *;
+
+button{
+    @include buttonDesign($height: 50px, $bR: 5px);
+    border: none;
+    background-image: none;
+    background-image: $deg-v1-OrangeToOrange;
+    gap: 10px;
+    z-index: 101;
+
+    &:hover{
+        transform: translateY(-3px);
+    }
+}

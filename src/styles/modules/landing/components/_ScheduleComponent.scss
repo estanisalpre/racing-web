@@ -8,10 +8,9 @@
 @use '../../../lib/components/ScheduleCardComponent';
 
 .schedule-container{
-    @include sizes($height: 100vh);
-    @include displayFlex($justifyContent: flex-start);
-    align-items: flex-start;
+    @include sizes();
+    @include displayFlex($justifyContent: flex-end);
+    position: relative;
     min-height: 100vh;
-    padding: 50px;
     background-image: $light-2-BackgroundImage;
 }
