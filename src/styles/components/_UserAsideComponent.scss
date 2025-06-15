@@ -8,15 +8,14 @@
 @use '../lib/components/IracingInput';
 
 .user-aside-container{
-    position: fixed;
-    @include sizes(300px,80%);
+    @include sizes();
     @include displayFlex($justifyContent: flex-start);
-    right: 10px;
     background-image: $dark-BackgroundImage;
     box-shadow: $shadow;
     border-radius: 20px;
     padding: 20px;
     animation: fade-in 1s ease forwards;
+    grid-column: 4/5;
 
     .user-avatar{
         @include sizes(100px,100px);

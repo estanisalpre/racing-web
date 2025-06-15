@@ -50,10 +50,6 @@
 html, body, #root {
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
   font-family: "Manrope Light", sans-serif;
   font-size: 16px;
 }
@@ -127,7 +123,7 @@ main {
   }
 }
 .nav {
-  width: 60%;
+  width: 100%;
   height: 50px;
   display: flex;
   justify-content: space-between;
@@ -136,11 +132,20 @@ main {
   position: fixed;
   top: 25px;
   z-index: 1000;
-  gap: 25px;
+  gap: 50px;
   padding: 10px;
   transition: all 0.3s ease;
 }
-.nav .header-link {
+.nav .left-header {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+.nav .left-header .header-link {
   text-decoration: none;
   display: flex;
   justify-content: center;
@@ -151,11 +156,19 @@ main {
   transition: all 0.3s ease;
   font-size: 16px;
 }
-.nav .header-link:hover {
+.nav .left-header .header-link:hover {
   transform: translateY(5px);
   border-bottom: 1px solid #2c2c2c;
 }
-.nav .start-link {
+.nav .left-header .header-link-home {
+  text-decoration: none;
+  color: #2c2c2c;
+  transition: all 0.5s ease;
+}
+.nav .left-header .header-link-home:hover {
+  transform: rotate(360deg);
+}
+.nav .left-header .start-link {
   padding: 5px;
   border-radius: 5px;
   width: 150px;
@@ -170,15 +183,26 @@ main {
   background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
   transition: all 0.3s ease;
 }
+.nav .right-header .header-audio-toggle {
+  width: 50px;
+  background-image: none;
+  background-color: transparent;
+  color: #2c2c2c;
+}
 
 .scrolled {
   background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
   top: 0px;
   width: 100%;
   height: 70px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
   padding: 10px;
   padding-left: 50px;
   padding-right: 50px;
+  color: #f1f1f1;
 }
 
 .alert-container {

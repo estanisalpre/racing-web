@@ -3,6 +3,9 @@
 // components
 @use './components/HeroComponent';
 @use './components/ScheduleComponent';
+@use './components/InscriptionComponent';
+@use '../../lib/components/UserLeagueButton';
+
 
 // views
 @use './views/LandingView';

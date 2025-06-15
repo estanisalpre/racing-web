@@ -1,0 +1,56 @@
+@use '../../../utils/vars' as *;       
+@use '../../../utils/mixins' as *;
+@use '../../../utils/typography' as *;
+@use '../../../utils/animations' as *;
+@use '../../../utils/breakpoints' as *;
+
+.create-event-form{
+    @include sizes();
+    @include displayFlex($justifyContent: space-between);
+    background-image: $dark-BackgroundImage;
+    box-shadow: $shadow;  
+    border-radius: 20px;
+    padding: 10px;
+
+    h2{
+        @include sizes($height: 40px);
+        background-image: $light-BackgroundImage;
+        @include displayFlex();
+        color: $darkFontColor;
+        font-family: $calSansFont;
+        border-radius: 10px;
+    }
+    form{
+        @include sizes();
+        @include displayFlex();
+        align-items: flex-start;
+        gap: 10px;
+        color: $lightFontColor;
+        margin-top: 10px;
+
+        label{
+            @include sizes($height: 20px);
+            font-family: $calSansFont;
+        }
+        select{
+            border-radius: 5px;
+            @include sizes($height: 40px);
+            font-family: $manropeLightFont;
+            outline: none;
+
+            option{
+                border: none;
+            }
+        }
+        input{
+            @include inputDesign($h: 30px);
+            font-size: $sm;
+        }
+        button{
+            @include buttonDesign();
+            background-image: $light-BackgroundImage;
+            border: none;
+            color: $darkFontColor
+        }
+    }
+}

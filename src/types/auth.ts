@@ -10,6 +10,12 @@ export interface LoginData {
   password: string;
 }
 
+export const Roles = {
+  superAdmin: 'superAdmin',
+  admin: 'admin',
+  racer: 'racer',
+} as const;
+
 export interface User {
   id: string;
   username: string;
@@ -18,6 +24,7 @@ export interface User {
   updatedAt: string;
   avatar: string;
   iracing_id: number | null;
+  role: Roles;
 }
 
 export interface AuthUserData extends User {
@@ -73,4 +80,7 @@ export interface AuthContextType {
   error: string | null;
   clearError: () => void;
   updateUser: (user: User) => void;
+  role: Roles | null;
 }
+
+export type Roles = (typeof Roles)[keyof typeof Roles];

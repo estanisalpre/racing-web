@@ -1,5 +1,4 @@
 import { logos, utils } from "../../../utils/Resources"
-import LeagueComponent from "../../../lib/components/LeagueComponent"
 
 export default function HeroComponent() {
   return (
@@ -12,7 +11,6 @@ export default function HeroComponent() {
               <h1 className="hero-title">The iRacing Experience</h1>
               <h2 className="hero-subtitle">Compite cada semana, demuestra tu talento y alcanza la gloria virtual.</h2>
             </div>
-            <LeagueComponent/>
         </article>
     </section>
   )

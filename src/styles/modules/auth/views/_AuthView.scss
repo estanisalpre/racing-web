@@ -8,7 +8,7 @@
 @use '../../../lib/components/FormInput';
 
 .auth-view-container{
-    @include sizes(95%,$height: 70vh);
+    @include sizes(95%, 70%);
     @include displayFlex($flexDirection:row);
     margin: 0 auto;
     position: relative; 
@@ -17,7 +17,7 @@
     background-image: $darkBlack-BackgroundImage;
 
     .auth-view-content{
-        @include sizes(50%);
+        @include sizes(50%, 70%);
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
         @include displayFlex();

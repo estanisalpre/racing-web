@@ -5,32 +5,105 @@
 @use '../../utils/breakpoints' as *;
 
 .schedule-card-container{
-    @include sizes($height: 150px);
-    @include displayFlex();
-    padding: 10px;
     box-shadow: $shadow;
-    border-radius: 20px;
-    background-image: $darkBlack-BackgroundImage;
+    @include sizes(50%,90%);
+    @include displayFlex();
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    background-image: $dark-BackgroundImage;
+    gap: 20px;
 
-    .schedule-card-content{
-        @include displayFlex($flexDirection: row, $justifyContent: space-between);
+    .schedule-title{
+        @include sizes($height: 100px);
+        @include displayFlex();
+        font-size: 70px;
+        font-family: $calSansFont;
+        color: $lightFontColor;
+        grid-column: span 2;
+    }
+    p{
+        grid-column: span 2;
+        @include sizes($height: 60px);
+        @include displayFlex();
+        background-image: $light-BackgroundImage;
+        color: $darkFontColor;
+        font-size: $lg;
+        font-weight: $bold;
+    }
+
+    .league-content{
         @include sizes();
+        @include displayFlex($flexDirection: row);
+        align-items: flex-start;
+        flex-wrap: wrap;
 
-        .schedule-card-date{
-            @include sizes(130px,90%);
-            @include displayFlex();
-            background-image: $light-orange-BackgroundImage;
+        .league-section{
+            width: 40%;
             border-radius: 20px;
+            grid-column: span 2;
+            @include displayFlex();
+            margin: 0 auto;
+            background-image: $light-BackgroundImage;
+            box-shadow: $shadow;
 
-            .calendar-icon{
-                @include sizes(60%,auto);
-                @include displayFlex();
-                color: $bg-light;
+            .league-header{
+                @include sizes($height: 50px);
+                @include displayFlex($flexDirection:row, $justifyContent: space-between);
+                border-bottom: 2px solid $darkFontColor;
+                padding: 5px;
+
+                .league-title{
+                    font-family: $calSansFont;
+                    color: $darkFontColor;
+                    font-size: $slg;
+                }
+
+                .btn-action{
+                    @include buttonDesign($height: 30px);
+
+                    &:hover{
+                        transform: translateY(-3px);
+                    }
+                }
+                button{
+                    height: 30px;
+                }
+
+
             }
-            span{
-                color: $darkFontColor;
-                font-size: 20px;
-                font-weight: 800;
+
+            .week-block{
+                @include sizes();
+                @include displayFlex();
+                gap: 5px;
+                padding: 5px;
+
+                .week-title{
+                    border-bottom: 1px solid #ccc;
+                    @include sizes();
+                    @include displayFlex();
+                    align-items: flex-start;
+                    padding: 2px;
+                    font-family: $calSansFont;
+                }
+                .event-list{
+                    list-style: none;
+                    @include sizes();
+                    @include displayFlex();
+
+                    .event-item{
+                        @include sizes();
+                        @include displayFlex();
+
+                        .session-name{
+                            font-size: $lg;
+                            font-weight: $bold;
+                        }
+                        .session-time{
+
+                        }
+                    }
+                }
             }
         }
     }

@@ -5,37 +5,62 @@
 @use './../utils/breakpoints' as *;
 
 .nav{
-    @include sizes(60%, 50px);
+    @include sizes(100%, 50px);
     @include displayFlex($flexDirection:row, $justifyContent: space-between);
     position: fixed;
     top: 25px;
     z-index: 1000;
-    gap: 25px;
+    gap: 50px;
     padding: 10px;
     transition: all 0.3s ease;
     
-    .header-link{
-        text-decoration: none;
-        @include displayFlex();
-        color: $darkFontColor;
-        font-weight: $bold;
-        transition: all 0.3s ease;
-        font-size: $md;
+    .left-header{
+        @include sizes();
+        @include displayFlex($flexDirection:row);
+        gap: 20px;
 
-        &:hover{
-            transform: translateY(5px);
-            border-bottom: 1px solid $darkFontColor;
+        .header-link{
+            text-decoration: none;
+            @include displayFlex();
+            color: $darkFontColor;
+            font-weight: $bold;
+            transition: all 0.3s ease;
+            font-size: $md;
+
+            &:hover{
+                transform: translateY(5px);
+                border-bottom: 1px solid $darkFontColor;
+            }
+        }
+        .header-link-home{
+            text-decoration: none;
+            color: $darkFontColor;
+            transition: all 0.5s ease;
+
+            &:hover{
+                transform: rotate(360deg);
+            }
+        }
+        .start-link{
+            @include buttonDesign();
         }
     }
-    .start-link{
-        @include buttonDesign();
+    .right-header{
+        .header-audio-toggle{
+            width: 50px;
+            background-image: none;
+            background-color: transparent;
+            color: $darkFontColor;
+        }
     }
 }
 .scrolled{
     background-image: $light-BackgroundImage;
     top: 0px;
     @include sizes($height: 70px);
+    @include displayFlex($flexDirection:row);
     padding: 10px;
     padding-left: 50px;
     padding-right: 50px;
+    color: $lightFontColor;
 }

@@ -8,7 +8,6 @@
     @include displayFlex();
     @include sizes($height: 50%);
     z-index: 100;
-    animation: r-slide-in 3s ease;
     gap: 20px;
 
     h2{
@@ -57,17 +56,6 @@
                 top: 0;
                 left: 0;
                 z-index: 99;
-            }
-
-            button{
-                @include buttonDesign($width: 100%, $height: 50px, $bR: 0px);
-                border: none;
-                background-image: none;
-                background-image: $deg-v1-OrangeToOrange;
-                color: $darkFontColor;
-                gap: 10px;
-                font-size: $lg;
-                z-index: 101;
             }
         }
     }

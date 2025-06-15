@@ -6,11 +6,20 @@
 
 // imports
 @use '../../../components/UserAsideComponent';
+@use '../components/custom/RaceStatsComponent';
 
 .dashboard-view{
     z-index: 100;
-    @include sizes();
-    @include displayFlex();
+    @include sizes(95%,80%);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    grid-template-columns: 300px 2fr 1fr 300px;
 
     .dashboard-content{
         @include sizes(84%, 95%);

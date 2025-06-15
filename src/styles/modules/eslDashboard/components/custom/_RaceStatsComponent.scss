@@ -1,0 +1,107 @@
+@use '../../../../utils/vars' as *;       
+@use '../../../../utils/mixins' as *;
+@use '../../../../utils/typography' as *;
+@use '../../../../utils/animations' as *;
+@use '../../../../utils/breakpoints' as *;
+
+.racer-stats-container{
+    margin-top: 10px;
+    @include sizes();
+    @include displayFlex($justifyContent: space-between);
+    gap: 10px;
+
+    h2{
+        @include sizes($height: 40px);
+        @include displayFlex();
+        color: $lightFontColor;
+        font-family: $calSansFont;
+        font-size: $lg;
+    }
+
+    .racer-points{
+        width: 100%;
+        @include displayFlex($flexDirection:row);
+        gap: 10px;
+        border-radius: 10px;
+        background-image: $center-gradient-BackgroundImage;
+        font-size: $md;
+
+        span{
+            font-size: 50px;
+            font-family: $calSansFont;
+        }
+    }
+    .racer-information{
+        width: 100%;
+        @include displayFlex();
+        
+        ul{
+            @include sizes();
+            @include displayFlex($flexDirection:row, $justifyContent: flex-start);
+            align-items: flex-start;
+            list-style: none;
+            flex-wrap: wrap;
+            gap: 5px;
+
+            li{
+                font-size: $lg;
+                height: 30px;
+                @include displayFlex($flexDirection:row, $justifyContent: flex-start);
+                gap: 5px;
+                color: $bg-light;
+                font-family: $calSansFont; 
+                background-image: $light-2-BackgroundImage;
+                border-radius: 5px;
+                padding: 5px;
+
+                strong{
+                    padding: 3px;
+                    font-size: $sm;
+                    color: $darkFontColor;
+                    font-family: $manropeLightFont;
+                }
+            }
+        }
+    }
+    .championship-information{
+        @include sizes($height: 100px);
+        @include displayFlex($justifyContent: flex-start);
+        gap: 10px;
+        background-image: $light-2-BackgroundImage;
+        border-radius: 10px;
+        position: realtive;
+
+        h3{
+            @include sizes($height: 40px);
+            @include displayFlex();
+            color: $darkFontColor;
+            font-family: $calSansFont;
+            font-size: $lg;
+            border-bottom: 1px solid $darkFontColor;
+        }
+
+        ul{
+            @include sizes();
+            @include displayFlex();
+            align-items: flex-start;
+            list-style: none;
+            padding: 5px;
+
+            li{
+                @include sizes($height: 20px);
+                @include displayFlex($flexDirection:row, $justifyContent: flex-start);
+                gap: 10px;
+                font-size: $lg;
+                font-family: $calSansFont;
+                color: $bg-light;
+
+                strong{
+                    font-family: $manropeLightFont;
+                    color: $darkFontColor;
+                    font-size: $sm;
+                }
+            }
+        }
+    }
+
+}

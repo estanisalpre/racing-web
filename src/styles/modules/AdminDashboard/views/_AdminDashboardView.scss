@@ -1,0 +1,20 @@
+@use '../../../utils/vars' as *;       
+@use '../../../utils/mixins' as *;
+@use '../../../utils/typography' as *;
+@use '../../../utils/animations' as *;
+@use '../../../utils/breakpoints' as *;
+
+// components
+@use '../components/UploadRacingSummary';
+@use '../components/CreateEvent';
+
+.admin-dashboard-container{
+    display: grid;
+    margin-top: 150px;
+    @include sizes();
+    padding: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+}

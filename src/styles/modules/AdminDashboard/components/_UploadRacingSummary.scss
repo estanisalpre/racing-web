@@ -1,0 +1,76 @@
+@use '../../../utils/vars' as *;       
+@use '../../../utils/mixins' as *;
+@use '../../../utils/typography' as *;
+@use '../../../utils/animations' as *;
+@use '../../../utils/breakpoints' as *;
+
+.upload-racing-container{
+    @include sizes(80%);
+    @include displayFlex($justifyContent: flex-start);
+    border-radius: 20px;
+    box-shadow: $shadow;
+    background-image: $dark-BackgroundImage;
+    padding: 10px;
+    gap: 10px;
+
+    h2{
+        @include sizes($height: 80px);
+        @include displayFlex();
+        text-align: center;
+        color: $darkFontColor;
+        background-image: $light-BackgroundImage;
+        border-radius: 20px;
+        font-family: $calSansFont;
+    }
+    label{
+        @include sizes($height: 40px);
+        @include displayFlex();
+        align-items: flex-start;
+        color: $lightFontColor;
+        font-weight: $bold;
+    }
+
+    select{
+        @include sizes($height: 40px);
+        border: none;
+        border-radius: 10px;
+        padding: 5px;
+        color: $bg-light;
+        background-image: $light-BackgroundImage;
+        font-family: $calSansFont;
+    }
+
+    .custom-file-upload{
+        @include sizes($height: 40px);
+        @include displayFlex($flexDirection: row);
+        gap: 5px;
+        padding: 0.75rem 1.5rem;
+        cursor: pointer;
+        background-image: $light-orange-BackgroundImage; 
+        color: #fff;
+        font-weight: bold;
+        border-radius: 0.5rem;
+        transition: background-color 0.3s ease;
+        font-size: $sm;
+    }
+
+    input{
+        display: none;
+    }
+
+    button{
+        @include buttonDesign($width: 100%);
+        background-image: none;
+        background-color: #b7ff75;
+        color: $darkFontColor;
+        border: none;
+    }
+
+    .status{
+        @include sizes();
+        @include displayFlex();
+        text-align: left;
+        font-size: $sm;
+        color: #b7ff75;
+    }
+}

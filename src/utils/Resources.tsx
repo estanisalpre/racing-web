@@ -13,6 +13,9 @@ import TwoCars from '../assets/utils/two-cars.png'
 // logos
 import Logo1 from '../assets/logos/esl-logo.png'
 
+// audio
+import F1CarPassing from '../assets/audio/f1-sound-passing.mp3'
+
 
 // Exports
 // cars
@@ -33,4 +36,9 @@ export const utils = {
 // logos
 export const logos = {
     logo1: Logo1,
+}
+
+// audio
+export const audios = {
+    f1CarPassing: F1CarPassing,
 }

@@ -9,7 +9,6 @@
 }
 html, body, #root {
     @include sizes();
-    @include displayFlex();
     font-family: $manropeLightFont; 
     font-size: $md;      
 }
