@@ -5,7 +5,6 @@
 @use '../../../utils/breakpoints' as *;
 
 .form-auth{
-    border: 1px solid red;
     @include sizes();
     @include displayFlex();
     position: relative;

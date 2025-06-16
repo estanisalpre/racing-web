@@ -1,0 +1,21 @@
+@use '../../../utils/vars' as *;       
+@use '../../../utils/mixins' as *;
+@use '../../../utils/typography' as *;
+@use '../../../utils/animations' as *;
+@use '../../../utils/breakpoints' as *;
+
+.admin-navigation{
+    grid-row: span 1;
+    grid-column: 1/5;
+    background-image: $dark-BackgroundImage;
+    border-radius: 20px;
+    padding: 10px;
+    @include displayFlex($flexDirection: row, $justifyContent: flex-start);
+    @include sizes();
+    gap: 25px;
+
+    .btn{
+        @include buttonDesign();
+        border: 2px solid $lightFontColor;
+    }
+}

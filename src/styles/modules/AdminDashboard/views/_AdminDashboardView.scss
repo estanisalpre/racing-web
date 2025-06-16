@@ -7,14 +7,15 @@
 // components
 @use '../components/UploadRacingSummary';
 @use '../components/CreateEvent';
+@use '../components/AdminNavigation';
 
 .admin-dashboard-container{
     display: grid;
-    margin-top: 150px;
     @include sizes();
-    padding: 20px;
+    padding: 20px;  
+    padding-top: 100px;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: 80px auto;
     grid-gap: 10px;
-    grid-auto-rows: minmax(100px, auto);
+    position: relative;
 }

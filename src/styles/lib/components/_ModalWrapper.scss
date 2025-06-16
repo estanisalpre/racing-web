@@ -1,0 +1,48 @@
+@use '../../utils/vars' as *;       
+@use '../../utils/mixins' as *;
+@use '../../utils/typography' as *;
+@use '../../utils/animations' as *;
+@use '../../utils/breakpoints' as *;
+
+.full-modal-wrapper{
+    @include sizes();
+    position: absolute;
+    z-index: 100000;
+    background-color: #000000ad;
+    @include displayFlex();
+
+    .modal-content{
+        @include sizes();
+        max-width: 650px;
+        max-height: 500px;
+        @include displayFlex($justifyContent: flex-start);
+        gap: 15px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        scrollbar-width: none;
+        background-image: $light-BackgroundImage;
+        border-radius: 20px;
+        box-shadow: $shadow;
+        position: relative;
+
+        .title-modal{
+            @include sizes($height: 40px);
+            @include displayFlex();
+            align-items: flex-start;
+            padding: 5px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .close-modal-button{
+            @include buttonDesign($width: 25px, $height: 25px);
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 1000000;
+
+            &:hover{
+                transform: none;
+            }
+        }
+    }
+}
