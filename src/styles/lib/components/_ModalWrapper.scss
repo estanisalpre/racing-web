@@ -13,8 +13,8 @@
 
     .modal-content{
         @include sizes();
-        max-width: 650px;
-        max-height: 500px;
+        max-width: 70vw;
+        max-height: 70vh;
         @include displayFlex($justifyContent: flex-start);
         gap: 15px;
         overflow-x: hidden;
