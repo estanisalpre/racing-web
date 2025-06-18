@@ -38,4 +38,16 @@ export const API_ROUTES = {
         // USER
         IRACING_ID: '/user/iracing-id',
         AVATAR_URL: '/user/avatar-url',
+
+        // TRACKS
+        UPDATE_TRACK: '/track/update',
+
+    // DELETE
+        // TRACKS
+        DELETE_TRACK: '/track/delete',
+
+        // EVENTS
+        DELETE_EVENT: '/event/delete',
+
+
 }

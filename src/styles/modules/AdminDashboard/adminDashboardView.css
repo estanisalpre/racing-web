@@ -89,7 +89,7 @@
   }
 }
 .upload-racing-container {
-  width: 80%;
+  width: 100%;
   height: 100%;
   display: flex;
   justify-content: flex-start;
@@ -103,7 +103,7 @@
 }
 .upload-racing-container h2 {
   width: 100%;
-  height: 80px;
+  height: 40px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -111,8 +111,9 @@
   text-align: center;
   color: #2c2c2c;
   background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
-  border-radius: 20px;
+  border-radius: 10px;
   font-family: "Cal Sans", sans-serif;
+  font-size: 22px;
 }
 .upload-racing-container label {
   width: 100%;
@@ -269,14 +270,81 @@
   color: #2c2c2c;
 }
 
+.admin-navigation {
+  grid-row: span 1;
+  grid-column: 1/5;
+  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+  border-radius: 20px;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  gap: 25px;
+}
+.admin-navigation .btn {
+  padding: 5px;
+  border-radius: 5px;
+  width: 150px;
+  height: 40px;
+  font-family: "Manrope Bold", sans-serif;
+  color: #f1f1f1;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+  transition: all 0.3s ease;
+  border: 2px solid #f1f1f1;
+}
+
+.modal-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.modal-container .modal-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.modal-container .modal-table th, .modal-container .modal-table td {
+  border: 1px solid #ccc;
+  padding: 12px;
+  text-align: center;
+}
+.modal-container .modal-table th .action-icon, .modal-container .modal-table td .action-icon {
+  cursor: pointer;
+}
+.modal-container .modal-table img {
+  width: auto;
+  height: 50px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.modal-container .modal-table thead {
+  background-color: #f5f5f5;
+}
+.modal-container .modal-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
 .admin-dashboard-container {
   display: grid;
-  margin-top: 150px;
   width: 100%;
   height: 100%;
   padding: 20px;
+  padding-top: 100px;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: 80px auto;
   grid-gap: 10px;
-  grid-auto-rows: minmax(100px, auto);
+  position: relative;
 }/*# sourceMappingURL=adminDashboardView.css.map */
